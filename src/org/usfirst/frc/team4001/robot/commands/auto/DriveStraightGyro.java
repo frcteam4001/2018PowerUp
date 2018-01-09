@@ -1,5 +1,7 @@
 package org.usfirst.frc.team4001.robot.commands.auto;
 
+import org.usfirst.frc.team4001.robot.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 
@@ -13,6 +15,8 @@ public class DriveStraightGyro extends Command {
     public DriveStraightGyro() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	
+    	requires(Robot.drive);
     }
 
     // Called just before this Command runs the first time
