@@ -3,8 +3,6 @@ package org.usfirst.frc.team4001.robot.subsystems;
 import org.usfirst.frc.team4001.robot.ElectricalConstants;
 import org.usfirst.frc.team4001.robot.commands.ArcadeDrive;
 
-
-
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -41,11 +39,8 @@ public class DriveTrain4Victor extends DriveTrain {
 		
 		//initialize Drive Train
 		speedControllerLeft = new SpeedControllerGroup(frontLeftMotor, rearLeftMotor);
-		speedControllerLeft = new SpeedControllerGroup(frontRightMotor, rearRightMotor);
+		speedControllerRight = new SpeedControllerGroup(frontRightMotor, rearRightMotor);
 		drive = new DifferentialDrive(speedControllerLeft, speedControllerRight);
-		
-				
-		
 	}
 	
 
@@ -56,15 +51,13 @@ public class DriveTrain4Victor extends DriveTrain {
 
 	@Override
 	public void runLeftDrive(double power) {
-		frontLeftMotor.set(power);
-		rearLeftMotor.set(power);
+		speedControllerLeft.set(power);
 	}
 	
 
 	@Override
 	public void runRightDrive(double power) {
-		frontRightMotor.set(power);
-		rearRightMotor.set(power);
+		speedControllerRight.set(power);
 	}
 
 }

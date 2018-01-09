@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team4001.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4001.robot.subsystems.DriveTrain4Victor;
+import org.usfirst.frc.team4001.robot.subsystems.DriveTrain4VictorEncGyro;
 import org.usfirst.frc.team4001.robot.subsystems.ExampleSubsystem;
 
 /**
@@ -23,7 +24,7 @@ public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
-	public static DriveTrain4Victor drive;  //TODO verify this is the correct drivetrain subsystem
+	public static DriveTrain4VictorEncGyro drive;  //TODO verify this is the correct drivetrain subsystem
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -35,7 +36,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		drive = new DriveTrain4Victor(); 
+		drive = new DriveTrain4VictorEncGyro(); 
 		
 		chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
