@@ -1,13 +1,14 @@
 package org.usfirst.frc.team4001.robot.subsystems;
-import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  * Abstract class for DriveTrain subsystems enforcing basic drive train methods.
  */
+@SuppressWarnings("deprecation")
 public abstract class DriveTrain extends Subsystem {
 	
-	protected RobotDrive drive;
+	protected DifferentialDrive drive;
 
 	/**
 	 * Set the default command for a subsystem here.

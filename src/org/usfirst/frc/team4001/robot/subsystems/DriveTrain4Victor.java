@@ -5,8 +5,9 @@ import org.usfirst.frc.team4001.robot.commands.ArcadeDrive;
 
 
 
-import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 /**
  * Implementation of a basic 4 Victor motor {@link DriveTrain}
@@ -20,7 +21,8 @@ public class DriveTrain4Victor extends DriveTrain {
 	private Victor rearLeftMotor;
 	private Victor rearRightMotor;
 	
-	
+	protected SpeedControllerGroup speedControllerLeft;
+	protected SpeedControllerGroup speedControllerRight;
 	
 	public DriveTrain4Victor() {
 		
@@ -38,7 +40,10 @@ public class DriveTrain4Victor extends DriveTrain {
 		rearRightMotor.setInverted(ElectricalConstants.DRIVETRAIN_REAR_RIGHT_REVERSE);
 		
 		//initialize Drive Train
-		drive = new RobotDrive(frontLeftMotor, rearLeftMotor,frontRightMotor , rearRightMotor);
+		speedControllerLeft = new SpeedControllerGroup(frontLeftMotor, rearLeftMotor);
+		speedControllerLeft = new SpeedControllerGroup(frontRightMotor, rearRightMotor);
+		drive = new DifferentialDrive(speedControllerLeft, speedControllerRight);
+		
 				
 		
 	}
