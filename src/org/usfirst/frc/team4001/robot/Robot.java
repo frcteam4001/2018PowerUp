@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team4001.robot.commands.ExampleCommand;
+import org.usfirst.frc.team4001.robot.commands.auto.DriveStraightGyro;
 import org.usfirst.frc.team4001.robot.subsystems.DriveTrain4Victor;
 import org.usfirst.frc.team4001.robot.subsystems.DriveTrain4VictorEncGyro;
 import org.usfirst.frc.team4001.robot.subsystems.ExampleSubsystem;
@@ -41,6 +42,7 @@ public class Robot extends IterativeRobot {
 		chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
+		SmartDashboard.putData("DriveStraightGyro", new DriveStraightGyro());
 	}
 
 	/**
