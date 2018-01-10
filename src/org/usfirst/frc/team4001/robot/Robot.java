@@ -43,6 +43,8 @@ public class Robot extends IterativeRobot {
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 		SmartDashboard.putData("DriveStraightGyro", new DriveStraightGyro());
+		
+		System.out.println("Average Distance:" + drive.getAverageDistance());
 	}
 
 	/**
