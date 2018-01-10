@@ -8,7 +8,7 @@ package org.usfirst.frc.team4001.robot;
  * floating around.  ALL VALUES MUST BE VERIFIED off the default base code.
  */
 public class ElectricalConstants {
-	     
+	         
 		// ************************************************************************
 		// **************************  GAME CONTROLLERS  **************************
 		// ************************************************************************
