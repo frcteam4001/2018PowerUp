@@ -10,8 +10,8 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class DriveStraightGyro extends Command {
 	
-	double setPoint = 1000;
-	double speed = 0.5;
+	double setPoint = 50;
+	double speed = 0.35;
 	double setAngle = 0;
 	double epsilon = 2;
 	
