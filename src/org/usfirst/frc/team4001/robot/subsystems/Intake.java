@@ -20,7 +20,9 @@ public class Intake extends Subsystem {
     private Solenoid extenderIn;
     private Solenoid extenderOut;
     
-
+    /**
+     * Constructor
+     */
     public Intake() {
     	leftArm = new Victor(ElectricalConstants.INTAKE_LEFT_ARM_MOTOR);
     	rightArm = new Victor(ElectricalConstants.INTAKE_RIGHT_ARM_MOTOR);
@@ -32,34 +34,52 @@ public class Intake extends Subsystem {
     	extenderOut = new Solenoid(ElectricalConstants.INTAKE_EXTENDER_OUT_SOLENOID);
     }
     
+    /**
+     * Extender opens
+     */
     public void extenderOut() 
     {
     	extenderIn.set(false);
     	extenderOut.set(true);
     }
     
+    /**
+     * Extender closes
+     */
     public void extenderIn() 
     {
     	extenderIn.set(true);
     	extenderOut.set(false);
     }
     
+    /**
+     * Wheels on both arms start rolling, taking in the cube
+     */
     public void armsRollIn()
     {
     	leftArm.set(0.5);
     	rightArm.set(0.5);
     }
     
+    /**
+     * Left arm wheel rolls
+     */
     public void leftArmRollIn()
     {
     	leftArm.set(0.5);
     }
     
+    /**
+     * Right arm wheel rolls
+     */
     public void rightArmRollIn()
     {
     	rightArm.set(0.5);
     }
     
+    /**
+     * Extender opens and arms open, releasing the cube
+     */
     public void release()
     {
     	this.extenderOut();
