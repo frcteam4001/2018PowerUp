@@ -26,7 +26,7 @@ public abstract class DriveTrain extends Subsystem {
     		if (scale <= 0 || scale > 1) {
     			 throw new IllegalArgumentException("scale must be in range 0 < scale <= 1");
     		}else {
-    			this.drive.arcadeDrive(forward*scale, turn*scale,false);
+    			this.drive.arcadeDrive(forward*scale, turn*scale);
     		}
     }
     
