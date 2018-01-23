@@ -23,8 +23,8 @@ public abstract class DriveTrain extends Subsystem {
      * @param scale		Scale factor to apply (must be > 0 and <= 1 )
      */
     public void arcadeDrive(double forward, double turn, double scale) {
-    		if (scale <= 0 || scale > 1) {
-    			 throw new IllegalArgumentException("scale must be in range 0 < scale <= 1");
+    		if (scale < 0 || scale > 1) {
+    			 throw new IllegalArgumentException("scale must be in range 0 <= scale <= 1");
     		}else {
     			this.drive.arcadeDrive(forward*scale, turn*scale);
     		}

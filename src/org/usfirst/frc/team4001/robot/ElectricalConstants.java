@@ -21,7 +21,7 @@ public class ElectricalConstants {
 		// ************************************************************************
 		// TODO set motor ports
 		public static final int DRIVETRAIN_FRONT_LEFT 						= 0;  // SET THIS
-		public static final int DRIVETRAIN_FRONT_RIGHT 						= 1;  // SET THIS
+		public static final int DRIVETRAIN_FRONT_RIGHT 						= 9;  // SET THIS
 		//public static final int DRIVETRAIN_REAR_LEFT						= 0;  // SET THIS
 		//public static final int DRIVETRAIN_REAR_RIGHT 						= 1;  // SET THIS
 		
@@ -41,7 +41,7 @@ public class ElectricalConstants {
 		public static final double driveGearRatio 					= 1/1; //ratio between wheel and encoder
 		public static final double driveEncoderPulsePerRot 			= drivePulsePerRotation*driveGearRatio; //pulse per rotation * gear ratio
 		public static final double driveEncoderDistPerTick 			=(Math.PI*2*driveWheelRadius)/driveEncoderPulsePerRot;
-		public static final boolean leftDriveTrainEncoderReverse 	= false;
+		public static final boolean leftDriveTrainEncoderReverse 	= true;
 		public static final boolean rightDriveTrainEncoderReverse 	= false;
 		
 		//***************************************************************************
@@ -51,8 +51,7 @@ public class ElectricalConstants {
 		public static final int LEFT_DRIVE_ENCODER_A                            = 0; 		//SET
 		public static final int LEFT_DRIVE_ENCODER_B                            = 1;		//SET
 		
-		public static final int RIGHT_DRIVE_ENCODER_A                           = 2;		//SET
-		public static final int RIGHT_DRIVE_ENCODER_B                           = 3;		//SET
+		public static final int RIGHT_DRIVE_ENCODER_A                           = 8;		//SET
+		public static final int RIGHT_DRIVE_ENCODER_B                           = 9;		//SET
 		
-
 }

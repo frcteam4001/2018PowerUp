@@ -14,11 +14,11 @@ public class NumberConstants {
     //**************************************************************************
 	
 	//Competition
-	public static final double pDrive 									 = 0.5;
+	public static final double pDrive 									 = 1.0;
 	public static final double iDrive 									 = 0.0;
 	public static final double dDrive 									 = 0.0;
 	
-	public static final double DRIVE_SCALE 								 = 1.0;
+	public static final double DRIVE_SCALE 								 = 0.0;
 	
 	
 	//**************************************************************************

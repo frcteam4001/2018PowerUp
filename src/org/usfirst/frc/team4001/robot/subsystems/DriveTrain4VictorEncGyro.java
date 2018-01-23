@@ -88,6 +88,10 @@ public class DriveTrain4VictorEncGyro extends DriveTrain4VictorEnc implements Gy
 		double output = drivePID.calcPIDDrive(setPoint, getAverageDistance(), epsilon);
 		double angle = gyroPID.calcPID(setAngle, getYaw(), epsilon);
 		
+		System.out.println("driveStraight output: " + output);
+		System.out.println("driveStraight angle: " + angle);
+		
+		
 		runLeftDrive(-(output + angle) * speed);
 		runRightDrive(-(-output + angle) * speed);
 	}

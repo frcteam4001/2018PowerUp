@@ -96,6 +96,9 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
+		
+		SmartDashboard.putNumber("Average Distance", drive.getAverageDistance());
+		
 	}
 
 	@Override
@@ -114,6 +117,9 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		SmartDashboard.putNumber("Distance", drive.getAverageDistance());
+		SmartDashboard.putNumber("Left Encoder Distance", drive.getLeftEncoderDist());
+		SmartDashboard.putNumber("Right Encoder Distance", drive.getRightEncoderDist());
 	}
 
 	/**
