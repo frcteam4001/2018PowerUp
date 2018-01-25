@@ -27,12 +27,13 @@ public class ArcadeDrive extends Command {
     protected void execute() {
     		moveForward = Robot.oi.game_controller.getLeftY();
     		turn = Robot.oi.game_controller.getRightX();
+    		System.out.println(turn);
     	
     		Robot.drive.arcadeDrive(moveForward, turn, NumberConstants.DRIVE_SCALE);
     		
-    		System.out.println(NumberConstants.pDrive);
-    		System.out.println(NumberConstants.iDrive);
-    		System.out.println(NumberConstants.dDrive);
+    		System.out.println("p Drive: " + NumberConstants.pDrive);
+    		System.out.println("i Drive: " + NumberConstants.iDrive);
+    		System.out.println("d Drive: " + NumberConstants.dDrive);
     		
     }
 
