@@ -1,4 +1,4 @@
-package org.usfirst.frc.team4001.robot;
+	package org.usfirst.frc.team4001.robot;
 
 
 /**
@@ -20,18 +20,19 @@ public class ElectricalConstants {
 		// **************************  DRIVETRAIN  ********************************
 		// ************************************************************************
 		// TODO set motor ports
-		public static final int DRIVETRAIN_FRONT_LEFT 						= -1;  // SET THIS
-		public static final int DRIVETRAIN_FRONT_RIGHT 						= -1;  // SET THIS
-		public static final int DRIVETRAIN_REAR_LEFT							= -1;  // SET THIS
-		public static final int DRIVETRAIN_REAR_RIGHT 						= -1;  // SET THIS
+		
+		public static final int DRIVETRAIN_FRONT_LEFT 						= 4;  // SET THIS
+		public static final int DRIVETRAIN_FRONT_RIGHT 						= 2;  // SET THIS
+		public static final int DRIVETRAIN_REAR_LEFT						= 3;  // SET THIS
+		public static final int DRIVETRAIN_REAR_RIGHT 						= 1;  // SET THIS
 		
 
 		// Inverse state of drivetrain motors
 		// TODO verify motor reverse settings
-		public static final boolean DRIVETRAIN_FRONT_LEFT_REVERSE				= true;		// CHECK
-		public static final boolean DRIVETRAIN_FRONT_RIGHT_REVERSE		 		= true;		// CHECK
-		public static final boolean DRIVETRAIN_REAR_LEFT_REVERSE			 	= true;		// CHECK
-		public static final boolean DRIVETRAIN_REAR_RIGHT_REVERSE			 	= true;		// CHECK
+		public static final boolean DRIVETRAIN_FRONT_LEFT_REVERSE				= false;	// CHECK
+		public static final boolean DRIVETRAIN_FRONT_RIGHT_REVERSE		 		= false;		// CHECK
+		public static final boolean DRIVETRAIN_REAR_LEFT_REVERSE			 	= false;	// CHECK
+		public static final boolean DRIVETRAIN_REAR_RIGHT_REVERSE			 	= false;		// CHECK
 		
 		
 		//this needs to be set accordingly for distance calculations
