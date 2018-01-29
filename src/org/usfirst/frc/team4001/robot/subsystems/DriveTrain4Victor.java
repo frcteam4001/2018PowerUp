@@ -38,9 +38,11 @@ public class DriveTrain4Victor extends DriveTrain {
 		//rearRightMotor.setInverted(ElectricalConstants.DRIVETRAIN_REAR_RIGHT_REVERSE);
 		
 		//initialize Drive Train
+
 		//speedControllerLeft = new SpeedControllerGroup(frontLeftMotor, rearLeftMotor);
 		//speedControllerRight = new SpeedControllerGroup(frontRightMotor, rearRightMotor);
 		drive = new DifferentialDrive(frontLeftMotor, frontRightMotor);
+
 	}
 	
 
@@ -57,6 +59,7 @@ public class DriveTrain4Victor extends DriveTrain {
 
 	@Override
 	public void runRightDrive(double power) {
+
 		frontRightMotor.set(power);
 	}
 
