@@ -1,4 +1,4 @@
-	package org.usfirst.frc.team4001.robot;
+package org.usfirst.frc.team4001.robot;
 
 
 /**
@@ -65,3 +65,4 @@ public class ElectricalConstants {
 		public static final int ELEVATOR_SOL_IN									= 0;
 		public static final int ELEVATOR_SOL_OUT								= 1;
 }
+>>>>>>> branch 'master' of https://github.com/frcteam4001/2018PowerUp.git
