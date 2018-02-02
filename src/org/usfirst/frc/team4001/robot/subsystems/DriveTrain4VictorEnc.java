@@ -76,6 +76,10 @@ public class DriveTrain4VictorEnc extends DriveTrain4Victor implements EncodedDr
 	public double getRightEncoderRaw() {
 		return rightDriveEncoder.getRaw();
 	}
+	
+	public double getAverageEncoderDist(){
+		return (leftDriveEncoder.getDistance() + rightDriveEncoder.getDistance())/2;
+	}
 
 	@Override
 	public void resetEncoders() {

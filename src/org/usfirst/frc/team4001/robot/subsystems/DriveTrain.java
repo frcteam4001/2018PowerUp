@@ -1,6 +1,9 @@
+
 package org.usfirst.frc.team4001.robot.subsystems;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+
+
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 /**
  * Abstract class for DriveTrain subsystems enforcing basic drive train methods.
@@ -23,10 +26,11 @@ public abstract class DriveTrain extends Subsystem {
      * @param scale		Scale factor to apply (must be > 0 and <= 1 )
      */
     public void arcadeDrive(double forward, double turn, double scale) {
-    		if (scale <= 0 || scale > 1) {
-    			 throw new IllegalArgumentException("scale must be in range 0 < scale <= 1");
+    		if (scale < 0 || scale > 1) {
+    			 throw new IllegalArgumentException("scale must be in range 0 <= scale <= 1");
     		}else {
-    			this.drive.arcadeDrive(forward*scale, turn*scale,false);
+
+    			this.drive.arcadeDrive(forward*scale, turn*scale);
     		}
     }
     

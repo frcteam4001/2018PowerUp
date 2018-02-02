@@ -1,6 +1,5 @@
 package org.usfirst.frc.team4001.robot.commands;
 
-import org.usfirst.frc.team4001.robot.ElectricalConstants;
 import org.usfirst.frc.team4001.robot.NumberConstants;
 import org.usfirst.frc.team4001.robot.Robot;
 
@@ -28,8 +27,13 @@ public class ArcadeDrive extends Command {
     protected void execute() {
     		moveForward = Robot.oi.game_controller.getLeftY();
     		turn = Robot.oi.game_controller.getRightX();
+    		System.out.println(turn);
     	
     		Robot.drive.arcadeDrive(moveForward, turn, NumberConstants.DRIVE_SCALE);
+    		
+    		System.out.println("p Drive: " + NumberConstants.pDrive);
+    		System.out.println("i Drive: " + NumberConstants.iDrive);
+    		System.out.println("d Drive: " + NumberConstants.dDrive);
     		
     }
 

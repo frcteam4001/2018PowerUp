@@ -1,4 +1,3 @@
-
 package org.usfirst.frc.team4001.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -8,10 +7,14 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team4001.commands.auto.DriveStraight;
 import org.usfirst.frc.team4001.robot.commands.ExampleCommand;
-import org.usfirst.frc.team4001.robot.subsystems.DriveTrain4Victor;
-import org.usfirst.frc.team4001.robot.subsystems.DriveTrain4VictorEncGyro;
+
+import org.usfirst.frc.team4001.robot.subsystems.DriveTrain4Talon;
+
 import org.usfirst.frc.team4001.robot.subsystems.ExampleSubsystem;
+
+import com.team4001.lib.util.PreferenceChanger;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -24,7 +27,9 @@ public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
-	public static DriveTrain4VictorEncGyro drive;  //TODO verify this is the correct drivetrain subsystem
+
+	public static DriveTrain4Talon drive; //TODO verify this is the correct drivetrain subsystem
+	private PreferenceChanger preference;
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -33,14 +38,18 @@ public class Robot extends IterativeRobot {
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
 	 */
+	
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		drive = new DriveTrain4VictorEncGyro(); 
-		
+
+		preference = new PreferenceChanger();
+		drive = new DriveTrain4Talon(); 
+
 		chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
+
 	}
 
 	/**
@@ -71,7 +80,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		autonomousCommand = chooser.getSelected();
+
 
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
@@ -91,6 +100,9 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
+		
+		SmartDashboard.putNumber("Average Distance", drive.getAverageDistance());
+		
 	}
 
 	@Override

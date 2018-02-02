@@ -1,5 +1,7 @@
 package org.usfirst.frc.team4001.robot.subsystems;
 
+import org.usfirst.frc.team4001.robot.NumberConstants;
+
 import com.team4001.lib.util.GyroDrive;
 import com.team4001.lib.util.PIDController;
 
@@ -24,6 +26,8 @@ public class DriveTrain4VictorGyro extends DriveTrain4Victor implements GyroDriv
 	public DriveTrain4VictorGyro() {
 		super(); //initialize motors at parent class
 		this.initGyro();
+		drivePID = new PIDController(NumberConstants.pDrive, NumberConstants.iDrive, NumberConstants.dDrive);
+		gyroPID = new PIDController(NumberConstants.pGyro, NumberConstants.iGyro, NumberConstants.dDrive);
 	}
 
 	@Override

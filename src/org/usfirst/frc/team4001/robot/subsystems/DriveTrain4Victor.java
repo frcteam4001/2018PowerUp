@@ -31,16 +31,18 @@ public class DriveTrain4Victor extends DriveTrain {
 		frontRightMotor = new Victor(ElectricalConstants.DRIVETRAIN_FRONT_RIGHT);
 		frontRightMotor.setInverted(ElectricalConstants.DRIVETRAIN_FRONT_RIGHT_REVERSE);
 		
-		rearLeftMotor = new Victor(ElectricalConstants.DRIVETRAIN_REAR_LEFT);
-		rearLeftMotor.setInverted(ElectricalConstants.DRIVETRAIN_REAR_LEFT_REVERSE);
+		//rearLeftMotor = new Victor(ElectricalConstants.DRIVETRAIN_REAR_LEFT);
+		//rearLeftMotor.setInverted(ElectricalConstants.DRIVETRAIN_REAR_LEFT_REVERSE);
 		
-		rearRightMotor = new Victor(ElectricalConstants.DRIVETRAIN_REAR_RIGHT);
-		rearRightMotor.setInverted(ElectricalConstants.DRIVETRAIN_REAR_RIGHT_REVERSE);
+		//rearRightMotor = new Victor(ElectricalConstants.DRIVETRAIN_REAR_RIGHT);
+		//rearRightMotor.setInverted(ElectricalConstants.DRIVETRAIN_REAR_RIGHT_REVERSE);
 		
 		//initialize Drive Train
-		speedControllerLeft = new SpeedControllerGroup(frontLeftMotor, rearLeftMotor);
-		speedControllerRight = new SpeedControllerGroup(frontRightMotor, rearRightMotor);
-		drive = new DifferentialDrive(speedControllerLeft, speedControllerRight);
+
+		//speedControllerLeft = new SpeedControllerGroup(frontLeftMotor, rearLeftMotor);
+		//speedControllerRight = new SpeedControllerGroup(frontRightMotor, rearRightMotor);
+		drive = new DifferentialDrive(frontLeftMotor, frontRightMotor);
+
 	}
 	
 
@@ -51,13 +53,14 @@ public class DriveTrain4Victor extends DriveTrain {
 
 	@Override
 	public void runLeftDrive(double power) {
-		speedControllerLeft.set(power);
+		frontLeftMotor.set(power);
 	}
 	
 
 	@Override
 	public void runRightDrive(double power) {
-		speedControllerRight.set(power);
+
+		frontRightMotor.set(power);
 	}
 
 }
