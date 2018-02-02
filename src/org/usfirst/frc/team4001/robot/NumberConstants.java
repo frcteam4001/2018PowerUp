@@ -32,5 +32,11 @@ public class NumberConstants {
 	public static final double iGyro 									 = 0.00;
 	public static final double dGyro 									 = 0.00;
 	
+	// ************************************************************************
+	// **************************  ELEVATOR  **********************************
+	// ************************************************************************
+	
+	public static final double elevatorMaxVoltage  						 = 0.5;
+	public static final double elevatorSpeed							 = 0.1;	
 
 }

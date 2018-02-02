@@ -1,5 +1,5 @@
 {
-  "dividerPosition": 0.5,
+  "dividerPosition": 0.29307568438003223,
   "tabPane": [
     {
       "title": "SmartDashboard",
@@ -21,9 +21,9 @@
               "_title": "Auto mode"
             }
           },
-          "1,2": {
+          "0,2": {
             "size": [
-              2,
+              1,
               1
             ],
             "content": {
@@ -64,6 +64,50 @@
               "_source0": "network_table:///Preferences/p Drive",
               "_title": "p Drive"
             }
+          },
+          "1,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Average Distance",
+              "_title": "Average Distance"
+            }
+          },
+          "1,2": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Positions/selected",
+              "_title": "SmartDashboard/Positions/selected"
+            }
+          },
+          "3,0": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "ComboBox Chooser",
+              "_source0": "network_table:///SmartDashboard/Autonomous Position",
+              "_title": "Autonomous Position"
+            }
+          },
+          "3,1": {
+            "size": [
+              3,
+              2
+            ],
+            "content": {
+              "_type": "Network Table Tree",
+              "_source0": "network_table:///LiveWindow/Ungrouped/Scheduler",
+              "_title": "LiveWindow/Ungrouped/Scheduler"
+            }
           }
         }
       }
@@ -79,12 +123,11 @@
         "tiles": {
           "0,0": {
             "size": [
-              3,
-              3
+              1,
+              1
             ],
             "content": {
               "_type": "List Layout",
-              "_source0": "network_table:///LiveWindow/Ungrouped",
               "_title": "Ungrouped",
               "_children": [
                 {
@@ -126,26 +169,24 @@
               ]
             }
           },
-          "3,0": {
+          "1,0": {
             "size": [
               1,
               1
             ],
             "content": {
               "_type": "List Layout",
-              "_source0": "network_table:///LiveWindow/DriveTrain4Talon",
               "_title": "DriveTrain4Talon",
               "_children": [
                 {
                   "_type": "List Layout",
-                  "_source0": "network_table:///LiveWindow/ExampleSubsystem",
                   "_title": "ExampleSubsystem",
                   "_children": []
                 }
               ]
             }
           },
-          "0,3": {
+          "0,1": {
             "size": [
               1,
               1
@@ -167,7 +208,7 @@
               "_title": "Preferences/i Drive"
             }
           },
-          "2,3": {
+          "2,0": {
             "size": [
               1,
               1
@@ -176,6 +217,28 @@
               "_type": "Text View",
               "_source0": "network_table:///Preferences/p Drive",
               "_title": "Preferences/p Drive"
+            }
+          },
+          "1,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/Encoder[1]/Distance per Tick",
+              "_title": "Ungrouped/Encoder[1]/Distance per Tick"
+            }
+          },
+          "1,2": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Ungrouped/Encoder[0]/Distance per Tick",
+              "_title": "Ungrouped/Encoder[0]/Distance per Tick"
             }
           }
         }

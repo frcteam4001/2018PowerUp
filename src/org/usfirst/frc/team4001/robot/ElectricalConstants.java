@@ -57,4 +57,11 @@ public class ElectricalConstants {
 		public static final int RIGHT_DRIVE_ENCODER_A                           = 8;		//SET
 		public static final int RIGHT_DRIVE_ENCODER_B                           = 9;		//SET
 		
+		// ************************************************************************
+		// **************************  ELEVATOR  **********************************
+		// ************************************************************************
+		
+		public static final int ELEVATOR_MOTOR                           		= 5;	
+		public static final int ELEVATOR_SOL_IN									= 0;
+		public static final int ELEVATOR_SOL_OUT								= 1;
 }
