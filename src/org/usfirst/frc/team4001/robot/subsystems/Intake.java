@@ -2,8 +2,9 @@ package org.usfirst.frc.team4001.robot.subsystems;
 
 import org.usfirst.frc.team4001.robot.ElectricalConstants;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
 import edu.wpi.first.wpilibj.Solenoid;
-import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -11,8 +12,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Intake extends Subsystem {
 
-    private Victor leftArm;
-    private Victor rightArm;
+    private WPI_TalonSRX leftArm;
+    private WPI_TalonSRX rightArm;
     
     private Solenoid leftArmSol;
     private Solenoid rightArmSol;
@@ -24,8 +25,8 @@ public class Intake extends Subsystem {
      * Constructor
      */
     public Intake() {
-    	leftArm = new Victor(ElectricalConstants.INTAKE_LEFT_ARM_MOTOR);
-    	rightArm = new Victor(ElectricalConstants.INTAKE_RIGHT_ARM_MOTOR);
+    	leftArm = new WPI_TalonSRX(ElectricalConstants.INTAKE_LEFT_ARM_MOTOR);
+    	rightArm = new WPI_TalonSRX(ElectricalConstants.INTAKE_RIGHT_ARM_MOTOR);
     	
     	leftArmSol = new Solenoid(ElectricalConstants.INTAKE_LEFT_ARM_SOLENOID);
     	rightArmSol = new Solenoid(ElectricalConstants.INTAKE_RIGHT_ARM_SOLENOID);
