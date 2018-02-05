@@ -56,6 +56,19 @@ public class ElectricalConstants {
 		
 		public static final int RIGHT_DRIVE_ENCODER_A                           = 8;		//SET
 		public static final int RIGHT_DRIVE_ENCODER_B                           = 9;		//SET
+
+		
+		//***************************************************************************
+		//****************************** INTAKE *************************************
+		//***************************************************************************
+		
+		public static final int INTAKE_LEFT_ARM_MOTOR				= -1;   //SET
+		public static final int INTAKE_RIGHT_ARM_MOTOR				= -1;   //SET
+		
+		public static final int INTAKE_LEFT_ARM_SOLENOID            = -1;   //SET
+		public static final int INTAKE_RIGHT_ARM_SOLENOID           = -1;   //SET
+		public static final int INTAKE_EXTENDER_IN_SOLENOID         = -1;   //SET
+		public static final int INTAKE_EXTENDER_OUT_SOLENOID        = -1;   //SET
 		
 }
->>>>>>> branch 'master' of https://github.com/frcteam4001/2018PowerUp.git
+//>>>>>>> branch 'master' of https://github.com/frcteam4001/2018PowerUp.git
