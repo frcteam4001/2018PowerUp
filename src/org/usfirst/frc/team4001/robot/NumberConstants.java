@@ -15,12 +15,11 @@ public class NumberConstants {
 	
 	//Competition
 
-	public static double pDrive 									 = 0.10;
+	public static double pDrive 									 = 0.5;
 	public static double iDrive 									 = 0.00;
-	public static double dDrive 									 = 0.03;
+	public static double dDrive 									 = 0.05;
 	
-	public static final double DRIVE_SCALE 								 = 0.4;
-
+	public static final double DRIVE_SCALE 								 = 1;
 	
 	
 	//**************************************************************************
@@ -36,7 +35,8 @@ public class NumberConstants {
 	// **************************  ELEVATOR  **********************************
 	// ************************************************************************
 	
-	public static final double elevatorMaxVoltage  						 = 0.5;
-	public static final double elevatorSpeed							 = 0.1;	
+	//public static final double elevatorMaxVoltage  						 = 0.5;
+	public static final double elevatorSpeed							 = 0.5;	
+	public static final double extendSpeed								 = 0.3;
 
 }

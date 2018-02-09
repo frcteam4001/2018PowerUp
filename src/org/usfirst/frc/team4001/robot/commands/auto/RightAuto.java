@@ -31,9 +31,9 @@ public class RightAuto extends CommandGroup {
     		System.out.println("Auto running for left side switch");
     		addSequential(new DriveStraightGyro(225.9845));
     		addSequential(new TurnGyro(-90));
-    		addSequential(new DriveStraightGyro(?));
+    		//addSequential(new DriveStraightGyro(?)); waiting to receive values before continuing
     		addSequential(new TurnGyro(-90));
-    		addSequential(new DriveStraightGyro(?));
+    		//addSequential(new DriveStraightGyro(?)); waiting to receive values before continuing
     	}
     	else if(gameData.charAt(1) == 'L'){
     		System.out.println("Auto running for left side scale");

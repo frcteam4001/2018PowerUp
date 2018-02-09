@@ -9,11 +9,13 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team4001.robot.commands.DriveStraight;
 import org.usfirst.frc.team4001.robot.commands.auto.LeftAuto;
 import org.usfirst.frc.team4001.robot.commands.auto.MiddleAuto;
 import org.usfirst.frc.team4001.robot.commands.auto.RightAuto;
 import org.usfirst.frc.team4001.robot.subsystems.DriveTrain4Talon;
 import org.usfirst.frc.team4001.robot.subsystems.Elevator;
+//import org.usfirst.frc.team4001.robot.subsystems.Elevator;
 import org.usfirst.frc.team4001.robot.subsystems.ExampleSubsystem;
 
 import com.team4001.lib.util.PreferenceChanger;
@@ -28,11 +30,11 @@ import com.team4001.lib.util.PreferenceChanger;
 public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
-	public static OI oi;
-
 	public static DriveTrain4Talon drive; //TODO verify this is the correct drivetrain subsystem
-	private PreferenceChanger preference;
 	public static Elevator elevator;
+	public static OI oi;
+	private PreferenceChanger preference;
+
 
 	Command autonomousCommand;
 	SendableChooser<String> chooser;
@@ -45,10 +47,10 @@ public class Robot extends IterativeRobot {
 	
 	@Override
 	public void robotInit() {
-		oi = new OI();
-
-		preference = new PreferenceChanger();
 		drive = new DriveTrain4Talon(); 
+		elevator = new Elevator();
+		oi = new OI();
+		preference = new PreferenceChanger();
 		chooser = new SendableChooser<String>();
 		chooser.addDefault("Left Position", "Left");
 		chooser.addObject("Middle Position", "Middle");
@@ -87,6 +89,8 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+		autonomousCommand = new DriveStraight();
+		/*
 		if(chooser.getSelected().equals("Left")){	
 			autonomousCommand = new LeftAuto();
 		}
@@ -96,6 +100,7 @@ public class Robot extends IterativeRobot {
 		else{
 			autonomousCommand = new RightAuto();
 		}
+		*/
 		autonomousCommand.start();
 	}
 		

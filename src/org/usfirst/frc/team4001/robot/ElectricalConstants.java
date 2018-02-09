@@ -61,8 +61,25 @@ public class ElectricalConstants {
 		// **************************  ELEVATOR  **********************************
 		// ************************************************************************
 		
-		public static final int ELEVATOR_MOTOR                           		= 5;	
-		public static final int ELEVATOR_SOL_IN									= 0;
-		public static final int ELEVATOR_SOL_OUT								= 1;
+		public static final int ELEVATOR_MOTOR                           		= 62;	
+		public static final int PUSH_MOTOR										= -1;
+		public static final int EXTEND_MOTOR									= 5;
+		//public static final int CUBE_LIFT_LIMIT									= -1;
+		//public static final int PUSHER_FRONT_LIMIT								= -1;
+		//public static final int PUSHER_BACK_LIMIT								= -1;
+		public static final int EXTEND_LIMIT									= 5;
+		
+		// ************************************************************************
+		// **************************  INTAKE  ************************************
+		// ************************************************************************
+		
+		public static final int INTAKE_LEFT_ARM_MOTOR							= 6;
+		public static final int INTAKE_RIGHT_ARM_MOTOR							= 7;
+		public static final int INTAKE_LEFT_ARM_SOLENOID						= 2;
+		public static final int INTAKE_RIGHT_ARM_SOLENOID						= 3;
+		public static final int INTAKE_EXTENDER_IN_SOLENOID						= 4;
+		public static final int INTAKE_EXTENDER_OUT_SOLENOID					= 5;
+		public static final int INTAKE_CUBE_LIMIT								= 4;
+		
 }
->>>>>>> branch 'master' of https://github.com/frcteam4001/2018PowerUp.git
+//>>>>>>> branch 'master' of https://github.com/frcteam4001/2018PowerUp.git

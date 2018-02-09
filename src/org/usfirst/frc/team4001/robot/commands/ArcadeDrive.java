@@ -26,10 +26,12 @@ public class ArcadeDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    		moveForward = Robot.oi.game_controller.getLeftY();
-    		turn = Robot.oi.game_controller.getRightX();
+    	moveForward = Robot.oi.game_controller.getLeftY();
+    	turn = Robot.oi.game_controller.getRightX();
     	
-    		Robot.drive.arcadeDrive(moveForward, turn, NumberConstants.DRIVE_SCALE);
+    	Robot.drive.arcadeDrive(-1*moveForward, turn, 1);
+    	System.out.println("Boolean: " + Robot.elevator.getExtenderLimit());
+
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -39,7 +41,7 @@ public class ArcadeDrive extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    		Robot.drive.hardStop();
+    	Robot.drive.hardStop();
     }
 
     // Called when another command which requires one or more of the same

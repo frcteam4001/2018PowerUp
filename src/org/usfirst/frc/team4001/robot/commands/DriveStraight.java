@@ -1,6 +1,5 @@
 package org.usfirst.frc.team4001.robot.commands;
 
-import org.usfirst.frc.team4001.robot.NumberConstants;
 import org.usfirst.frc.team4001.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -8,13 +7,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
+public class DriveStraight extends Command {
 
-public class ElevatorUp extends Command {
-
-    public ElevatorUp() {
+    public DriveStraight() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.elevator);
+    	requires(Robot.drive);
     }
 
     // Called just before this Command runs the first time
@@ -23,7 +21,8 @@ public class ElevatorUp extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.elevator.setElevatorSpeed(NumberConstants.elevatorSpeed);
+    	Robot.drive.driveStraight(5, 0.4, 0, 1);
+    	System.out.println("Encoder (Avg) Value: " + Robot.drive.getAverageDistance());
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -33,14 +32,11 @@ public class ElevatorUp extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.elevator.elevatorHardStop();    	
+    	Robot.drive.hardStop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.elevator.elevatorHardStop();
     }
-   
 }
-
