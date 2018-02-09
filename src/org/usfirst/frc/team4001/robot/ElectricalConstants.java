@@ -70,5 +70,18 @@ public class ElectricalConstants {
 		public static final int INTAKE_EXTENDER_IN_SOLENOID         = -1;   //SET
 		public static final int INTAKE_EXTENDER_OUT_SOLENOID        = -1;   //SET
 		
+		// ************************************************************************
+		// **************************  ELEVATOR  **********************************
+		// ************************************************************************
+		
+		public static final int ELEVATOR_MOTOR                           		= 62;	
+		public static final int PUSH_MOTOR										= -1;
+		public static final int EXTEND_MOTOR									= 5;
+		//public static final int CUBE_LIFT_LIMIT									= -1;
+		//public static final int PUSHER_FRONT_LIMIT								= -1;
+		//public static final int PUSHER_BACK_LIMIT								= -1;
+		public static final int EXTEND_LIMIT									= 5;
+		
+		
 }
-//>>>>>>> branch 'master' of https://github.com/frcteam4001/2018PowerUp.git
+

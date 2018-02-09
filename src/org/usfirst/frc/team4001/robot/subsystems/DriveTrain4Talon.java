@@ -20,6 +20,7 @@ public class DriveTrain4Talon extends DriveTrain {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
+	
 	private WPI_TalonSRX upperLeftMotor;
 	private WPI_TalonSRX upperRightMotor;
 	private WPI_TalonSRX bottomLeftMotor;
@@ -37,6 +38,7 @@ public class DriveTrain4Talon extends DriveTrain {
 	public PIDController gyroPID;
 	
 	
+	
 	public DriveTrain4Talon(){
 		upperLeftMotor = new WPI_TalonSRX(ElectricalConstants.DRIVETRAIN_FRONT_LEFT);
 		upperRightMotor = new WPI_TalonSRX(ElectricalConstants.DRIVETRAIN_FRONT_RIGHT);
@@ -48,7 +50,7 @@ public class DriveTrain4Talon extends DriveTrain {
 		drivePID = new PIDController(NumberConstants.pDrive, NumberConstants.iDrive, NumberConstants.dDrive);
 		gyroPID = new PIDController(NumberConstants.pGyro, NumberConstants.iGyro, NumberConstants.dGyro);
 		
-		leftEncoder = new Encoder(0,1,false, EncodingType.k4X);
+		leftEncoder = new Encoder(6,7,false, EncodingType.k4X);
 		rightEncoder = new Encoder(8,9,false, EncodingType.k4X);
 		
 		leftMotors = new SpeedControllerGroup(upperLeftMotor, bottomLeftMotor);

@@ -1,32 +1,19 @@
-package org.usfirst.frc.team4001.robot.commands.auto;
+package org.usfirst.frc.team4001.robot.commands;
 
 import org.usfirst.frc.team4001.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-
 /**
  *
  */
-public class DriveStraightGyro extends Command {
-	
+/*
+public class ElevatorPushBack extends Command {
 
-	double setPoint = 0;
-	double speed = 0.5;
-	double setAngle = 0;
-	double epsilon = 1;
-	
-
-    public DriveStraightGyro() {
+    public ElevatorPushBack() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	
-    	requires(Robot.drive);
-    }
-    
-    public DriveStraightGyro(double setPoint){
-    	requires(Robot.drive);
-    	this.setPoint = setPoint;
+    	requires(Robot.elevator);
     }
 
     // Called just before this Command runs the first time
@@ -35,10 +22,7 @@ public class DriveStraightGyro extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-
-    	System.out.println("Set Point" + setPoint);
-    	System.out.println("Speed: " + speed);
-    	Robot.drive.driveStraight(setPoint, speed, setAngle, epsilon);
+    	Robot.elevator.elevatorPushBack();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -48,6 +32,7 @@ public class DriveStraightGyro extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.elevator.push
     }
 
     // Called when another command which requires one or more of the same
@@ -55,3 +40,4 @@ public class DriveStraightGyro extends Command {
     protected void interrupted() {
     }
 }
+*/

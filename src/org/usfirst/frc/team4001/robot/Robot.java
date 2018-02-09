@@ -1,19 +1,22 @@
 package org.usfirst.frc.team4001.robot;
 
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team4001.commands.auto.DriveStraight;
-import org.usfirst.frc.team4001.robot.commands.ExampleCommand;
-
+import org.usfirst.frc.team4001.robot.commands.DriveStraight;
+import org.usfirst.frc.team4001.robot.commands.auto.LeftAuto;
+import org.usfirst.frc.team4001.robot.commands.auto.MiddleAuto;
+import org.usfirst.frc.team4001.robot.commands.auto.RightAuto;
 import org.usfirst.frc.team4001.robot.subsystems.DriveTrain4Talon;
-
+import org.usfirst.frc.team4001.robot.subsystems.Elevator;
 import org.usfirst.frc.team4001.robot.subsystems.ExampleSubsystem;
-import org.usfirst.frc.team4001.robot.subsystems.Intake;
+//import org.usfirst.frc.team4001.robot.subsystems.Intake;
 
 import com.team4001.lib.util.PreferenceChanger;
 
@@ -27,14 +30,16 @@ import com.team4001.lib.util.PreferenceChanger;
 public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
-	public static OI oi;
-
 	public static DriveTrain4Talon drive; //TODO verify this is the correct drivetrain subsystem
+	public static Elevator elevator;
+	public static OI oi;
 	private PreferenceChanger preference;
-	public static Intake intake;
+	//public static Intake intake;
+
 
 	Command autonomousCommand;
-	SendableChooser<Command> chooser = new SendableChooser<>();
+	SendableChooser<String> chooser;
+
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -43,16 +48,23 @@ public class Robot extends IterativeRobot {
 	
 	@Override
 	public void robotInit() {
-		oi = new OI();
-
-		preference = new PreferenceChanger();
 		drive = new DriveTrain4Talon(); 
-		intake = new Intake();
+		elevator = new Elevator();
+		oi = new OI();
+		preference = new PreferenceChanger();
 
-		chooser.addDefault("Default Auto", new ExampleCommand());
+		drive = new DriveTrain4Talon(); 
+		//intake = new Intake();
+
+		chooser = new SendableChooser<String>();
+		chooser.addDefault("Left Position", "Left");
+		chooser.addObject("Middle Position", "Middle");
+		chooser.addObject("Right Position", "Right");
+				
+		SmartDashboard.putData("Autonomous Position", chooser);
+
+
 		// chooser.addObject("My Auto", new MyAutoCommand());
-		SmartDashboard.putData("Auto mode", chooser);
-
 	}
 
 	/**
@@ -83,19 +95,21 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-
-
+		autonomousCommand = new DriveStraight();
 		/*
-		 * String autoSelected = SmartDashboard.getString("Auto Selector",
-		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
-		 * = new MyAutoCommand(); break; case "Default Auto": default:
-		 * autonomousCommand = new ExampleCommand(); break; }
-		 */
-
-		// schedule the autonomous command (example)
-		if (autonomousCommand != null)
-			autonomousCommand.start();
+		if(chooser.getSelected().equals("Left")){	
+			autonomousCommand = new LeftAuto();
+		}
+		else if(chooser.getSelected().equals("Middle")){
+			autonomousCommand = new MiddleAuto();
+		}
+		else{
+			autonomousCommand = new RightAuto();
+		}
+		*/
+		autonomousCommand.start();
 	}
+		
 
 	/**
 	 * This function is called periodically during autonomous

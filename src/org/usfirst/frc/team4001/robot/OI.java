@@ -1,9 +1,11 @@
 package org.usfirst.frc.team4001.robot;
 
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import com.team4001.lib.util.Gamepad;
-import org.usfirst.frc.team4001.robot.ElectricalConstants;;
+import org.usfirst.frc.team4001.robot.ElectricalConstants;
+import org.usfirst.frc.team4001.robot.commands.*;
 
 
 /**
@@ -17,6 +19,11 @@ public class OI {
 	 * @see Gamepad
 	 */
 	public Gamepad game_controller;
+	private JoystickButton extendUpButton;
+	private JoystickButton intakeUpButton;
+	private JoystickButton extendDownButton;
+	private JoystickButton intakeDownButton;
+	private JoystickButton extendHoldButton;
 	
 	// TODO declare primary controller buttons
 	
@@ -29,8 +36,23 @@ public class OI {
 		// instantiate game controllers
 		game_controller = new Gamepad(ElectricalConstants.GAMECONTROLLER_PRIMARY_PORT);
 		
+		intakeUpButton = game_controller.getButtonY();
+		intakeUpButton.whileHeld(new ElevatorUp());
+
+		intakeDownButton = game_controller.getButtonB();
+		intakeDownButton.whileHeld(new ElevatorDown());
+		
+		extendHoldButton = game_controller.getRightShoulder();
+		extendHoldButton.whileHeld(new ExtendHold());
+		
+		extendUpButton = game_controller.getButtonX();
+		extendUpButton.whileHeld(new ExtendUp());
+		
+		extendDownButton = game_controller.getButtonA();
+		extendDownButton.whileHeld(new ExtendDown());
+		
+		
 		// TODO bind game_controller buttons to commands
-		
-		
+	
 	}
 }
