@@ -79,6 +79,24 @@ public class Intake extends Subsystem {
     }
     
     /**
+     * Both arms open 
+     */
+    public void armsOpen() 
+    {
+       	leftArmSol.set(true);
+    	rightArmSol.set(true);
+    }
+    
+    /**
+     * Both arms close 
+     */
+    public void armsClose() 
+    {
+    	leftArmSol.set(false);
+    	rightArmSol.set(false);
+    }
+    
+    /**
      * Extender opens and arms open, releasing the cube
      */
     public void release()

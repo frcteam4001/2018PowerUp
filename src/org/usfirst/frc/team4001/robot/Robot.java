@@ -13,6 +13,7 @@ import org.usfirst.frc.team4001.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4001.robot.subsystems.DriveTrain4Talon;
 
 import org.usfirst.frc.team4001.robot.subsystems.ExampleSubsystem;
+import org.usfirst.frc.team4001.robot.subsystems.Intake;
 
 import com.team4001.lib.util.PreferenceChanger;
 
@@ -30,6 +31,7 @@ public class Robot extends IterativeRobot {
 
 	public static DriveTrain4Talon drive; //TODO verify this is the correct drivetrain subsystem
 	private PreferenceChanger preference;
+	public static Intake intake;
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -45,6 +47,7 @@ public class Robot extends IterativeRobot {
 
 		preference = new PreferenceChanger();
 		drive = new DriveTrain4Talon(); 
+		intake = new Intake();
 
 		chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());

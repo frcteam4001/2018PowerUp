@@ -9,7 +9,7 @@ package com.team4001.lib.util;
 public interface GyroDrive {
 	
 	/**
-	 * Initialize gyro object.  Contructor needs to call this.
+	 * Initialize gyro object.  Constructor needs to call this.
 	 */
 	public void initGyro();
 	

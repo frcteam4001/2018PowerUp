@@ -2,25 +2,26 @@ package org.usfirst.frc.team4001.robot.commands.auto;
 
 import org.usfirst.frc.team4001.robot.Robot;
 
-import edu.wpi.first.wpilibj.command.Command;
+import com.team4001.lib.util.BezierCurve;
+import com.team4001.lib.util.Point;
 
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class DriveStraightGyro extends Command {
+public class CurveDrive extends Command {
 	
+	Point p0 = new Point(0,0);
+	Point p1 = new Point(56,120);
+	Point p2 = new Point(56,165.354);
+	Point p3 = new Point(-18.2,165.354);
 
-	double setPoint = 400;
-	double speed = 0.5;
-	double setAngle = 0;
-	double epsilon = 1;
+	BezierCurve curve = new BezierCurve(p0, p1, p2, p3);
 	
-
-    public DriveStraightGyro() {
+    public CurveDrive() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	
     	requires(Robot.drive);
     }
 
@@ -30,10 +31,7 @@ public class DriveStraightGyro extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-
-    	System.out.println("Set Point" + setPoint);
-    	System.out.println("Speed: " + speed);
-    	Robot.drive.driveStraight(setPoint, speed, setAngle, epsilon);
+    	Robot.drive.driveStraight(curve.findHypotenuse(0), 0.2, curve.findAngle(0), 1);
     }
 
     // Make this return true when this Command no longer needs to run execute()
