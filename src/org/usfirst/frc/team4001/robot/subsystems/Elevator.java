@@ -60,7 +60,7 @@ public class Elevator extends Subsystem {
 		return elevatorLimit.get();
 	}
 	
-	/*
+	
 	public boolean getExtenderLimit(){
 		return extenderLimit.get();
 	}
