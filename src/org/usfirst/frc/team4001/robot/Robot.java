@@ -32,7 +32,10 @@ public class Robot extends IterativeRobot {
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static DriveTrain4Talon drive; //TODO verify this is the correct drivetrain subsystem
 	public static Elevator elevator;
+	//public static Intake intake; 
+	
 	public static OI oi;
+
 	private PreferenceChanger preference;
 	//public static Intake intake;
 

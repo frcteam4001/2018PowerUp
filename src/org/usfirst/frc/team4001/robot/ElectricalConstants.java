@@ -65,10 +65,7 @@ public class ElectricalConstants {
 		public static final int INTAKE_LEFT_ARM_MOTOR				= -1;   //SET
 		public static final int INTAKE_RIGHT_ARM_MOTOR				= -1;   //SET
 		
-		public static final int INTAKE_LEFT_ARM_SOLENOID            = -1;   //SET
-		public static final int INTAKE_RIGHT_ARM_SOLENOID           = -1;   //SET
-		public static final int INTAKE_EXTENDER_IN_SOLENOID         = -1;   //SET
-		public static final int INTAKE_EXTENDER_OUT_SOLENOID        = -1;   //SET
+		public static final int INTAKE_LIMIT						= -1;  	
 		
 		// ************************************************************************
 		// **************************  ELEVATOR  **********************************

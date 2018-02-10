@@ -42,7 +42,6 @@ public class Elevator extends Subsystem {
 		extendMotor.set(ControlMode.Position, 1);
 		
 		elevatorLimit = new DigitalInput(ElectricalConstants.CUBE_LIFT_LIMIT);
-		
 		extenderLimit = new DigitalInput(ElectricalConstants.EXTEND_LIMIT);
 		/*
 		pusherFrontLimit = new DigitalInput(ElectricalConstants.PUSHER_FRONT_LIMIT);
@@ -60,7 +59,6 @@ public class Elevator extends Subsystem {
 		return elevatorLimit.get();
 	}
 	
-	/*
 	public boolean getExtenderLimit(){
 		return extenderLimit.get();
 	}
