@@ -30,7 +30,8 @@ public class ArcadeDrive extends Command {
     	turn = Robot.oi.game_controller.getRightX();
     	
     	Robot.drive.arcadeDrive(-1*moveForward, turn, 1);
-    	System.out.println("Boolean: " + Robot.elevator.getExtenderLimit());
+    	//System.out.println("Boolean: " + Robot.elevator.getExtenderLimit());
+    	System.out.println("Boolean: " + Robot.elevator.getElevatorLimit());
 
     }
 

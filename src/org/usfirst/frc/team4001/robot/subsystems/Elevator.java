@@ -41,7 +41,7 @@ public class Elevator extends Subsystem {
 		extendMotor = new WPI_TalonSRX(ElectricalConstants.EXTEND_MOTOR);
 		extendMotor.set(ControlMode.Position, 1);
 		
-		//elevatorLimit = new DigitalInput(ElectricalConstants.CUBE_LIFT_LIMIT);
+		elevatorLimit = new DigitalInput(ElectricalConstants.CUBE_LIFT_LIMIT);
 		
 		extenderLimit = new DigitalInput(ElectricalConstants.EXTEND_LIMIT);
 		/*
@@ -55,12 +55,12 @@ public class Elevator extends Subsystem {
 	public void setElevatorSpeed(double power) {
 		elevatorMotor.set(power);
 	}
-	/*
+	
 	public boolean getElevatorLimit(){
 		return elevatorLimit.get();
 	}
-	*/
 	
+	/*
 	public boolean getExtenderLimit(){
 		return extenderLimit.get();
 	}
