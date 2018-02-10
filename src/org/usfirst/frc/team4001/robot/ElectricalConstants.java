@@ -14,6 +14,7 @@ public class ElectricalConstants {
 		// ************************************************************************
 		
 		public static final int GAMECONTROLLER_PRIMARY_PORT					= 0;
+		public static final int GAMECONTROLLER_SECONDARY_PORT				= 1;
 		
 	
 		// ************************************************************************
@@ -74,6 +75,8 @@ public class ElectricalConstants {
 		public static final int ELEVATOR_MOTOR                           		= 62;	
 		public static final int PUSH_MOTOR										= -1;
 		public static final int EXTEND_MOTOR									= 5;
+		public static final int CLIMB_MOTOR 									= -1;
+		
 		public static final int CUBE_LIFT_LIMIT									= 3;
 		//public static final int PUSHER_FRONT_LIMIT								= -1;
 		//public static final int PUSHER_BACK_LIMIT								= -1;
