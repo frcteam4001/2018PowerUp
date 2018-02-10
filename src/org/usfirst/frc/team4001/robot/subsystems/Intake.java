@@ -36,17 +36,20 @@ public class Intake extends Subsystem {
     public void armsRollOut() 
     {
     	leftArm.set(-0.5);
+    	rightArm.set(-0.5);
     }
-    
+
     public void leftArmRollIn()
     {
     	leftArm.set(0.5);
     }
    
+
     public void rightArmRollIn()
     {
     	rightArm.set(0.5);
     }
+
     
     public void hardStopRoll() {
     	leftArm.set(0);

@@ -37,8 +37,6 @@ public class DriveTrain4Talon extends DriveTrain {
 	public PIDController drivePID;
 	public PIDController gyroPID;
 	
-	
-	
 	public DriveTrain4Talon(){
 		upperLeftMotor = new WPI_TalonSRX(ElectricalConstants.DRIVETRAIN_FRONT_LEFT);
 		upperRightMotor = new WPI_TalonSRX(ElectricalConstants.DRIVETRAIN_FRONT_RIGHT);
@@ -51,6 +49,7 @@ public class DriveTrain4Talon extends DriveTrain {
 		gyroPID = new PIDController(NumberConstants.pGyro, NumberConstants.iGyro, NumberConstants.dGyro);
 		
 		leftEncoder = new Encoder(6,7,false, EncodingType.k4X);
+		
 		rightEncoder = new Encoder(8,9,false, EncodingType.k4X);
 		
 		leftMotors = new SpeedControllerGroup(upperLeftMotor, bottomLeftMotor);

@@ -15,8 +15,8 @@ import org.usfirst.frc.team4001.robot.commands.auto.MiddleAuto;
 import org.usfirst.frc.team4001.robot.commands.auto.RightAuto;
 import org.usfirst.frc.team4001.robot.subsystems.DriveTrain4Talon;
 import org.usfirst.frc.team4001.robot.subsystems.Elevator;
+//import org.usfirst.frc.team4001.robot.subsystems.Elevator;
 import org.usfirst.frc.team4001.robot.subsystems.ExampleSubsystem;
-//import org.usfirst.frc.team4001.robot.subsystems.Intake;
 
 import com.team4001.lib.util.PreferenceChanger;
 
@@ -37,14 +37,13 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 
 	private PreferenceChanger preference;
-	//public static Intake intake;
 
 
 	Command autonomousCommand;
 	SendableChooser<String> chooser;
 
 
-	/**
+	/**x
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
 	 */
@@ -55,17 +54,12 @@ public class Robot extends IterativeRobot {
 		elevator = new Elevator();
 		oi = new OI();
 		preference = new PreferenceChanger();
-
-		drive = new DriveTrain4Talon(); 
-		//intake = new Intake();
-
 		chooser = new SendableChooser<String>();
 		chooser.addDefault("Left Position", "Left");
 		chooser.addObject("Middle Position", "Middle");
 		chooser.addObject("Right Position", "Right");
 				
 		SmartDashboard.putData("Autonomous Position", chooser);
-
 
 		// chooser.addObject("My Auto", new MyAutoCommand());
 	}
