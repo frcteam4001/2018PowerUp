@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.PWMTalonSRX;
 import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -21,7 +22,7 @@ public class Elevator extends Subsystem {
 
 	private WPI_TalonSRX elevatorMotor;
 	private WPI_TalonSRX extendMotor;
-	//private WPI_TalonSRX pushMotor;
+	private Victor pushMotor;
 	private DigitalInput elevatorLimit;
 	//private DigitalInput pusherFrontLimit;
 	//private DigitalInput pusherBackLimit;
@@ -34,10 +35,9 @@ public class Elevator extends Subsystem {
 	public Elevator() {
 		elevatorMotor = new WPI_TalonSRX(ElectricalConstants.ELEVATOR_MOTOR);
 		elevatorMotor.set(ControlMode.Position, 1);
-		/*
-		pushMotor = new WPI_TalonSRX(ElectricalConstants.PUSH_MOTOR);
-		pushMotor.set(ControlMode.Position, 1);
-		*/
+		
+		pushMotor = new Victor(ElectricalConstants.PUSH_MOTOR);
+		
 		extendMotor = new WPI_TalonSRX(ElectricalConstants.EXTEND_MOTOR);
 		extendMotor.set(ControlMode.Position, 1);
 		
@@ -62,6 +62,10 @@ public class Elevator extends Subsystem {
 	public boolean getExtenderLimit(){
 		return extenderLimit.get();
 	}
+	
+	public void setPusherSpeed(double speed) {
+		pushMotor.set(speed);
+	}
 	/*
 	public boolean getPusherFrontLimit(){
 		return pusherFrontLimit.get();
@@ -70,14 +74,14 @@ public class Elevator extends Subsystem {
 	public boolean getPusherBackLimit(){
 		return pusherBackLimit.get();
 	}
-	*/
 	
-	/*
+	*/
+	/* change this to an encoder value soon
 	public void elevatorPushForward(){
 		pushMotor.set(0.2);
 	}
 	*/
-	/*
+	/* change this to an encoder value soon
 	public void elevatorPushBack(){
 		pushMotor.set(-1*0.2);
 	}
@@ -87,6 +91,21 @@ public class Elevator extends Subsystem {
 		elevatorMotor.getSensorCollection().setQuadraturePosition(location, 0);
 	}
 	*/
+	
+	public int getEncoderVal() {
+		return elevatorMotor.getSensorCollection().getQuadraturePosition();
+	}
+	
+	public void setToHome() {
+	//	elevatorMotor.getSensorCollection().setQuadraturePosition(, );
+	}
+	
+	/**
+	 * Reset the encoder position value to zero.
+	 */
+	public void zeroEncoderPosition(){
+		elevatorMotor.setSelectedSensorPosition(0, 0, 10);
+	}
 	
 	public void setExtendSpeed(double speed){
 		extendMotor.set(speed);
@@ -99,11 +118,10 @@ public class Elevator extends Subsystem {
 	public void extendHardStop(){
 		extendMotor.set(0);
 	}
-	/*
+	
 	public void pusherHardStop(){
 		pushMotor.set(0);
 	}
-	*/
 	
 	
     public void initDefaultCommand() {

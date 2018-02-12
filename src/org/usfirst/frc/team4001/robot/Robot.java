@@ -10,9 +10,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team4001.robot.commands.DriveStraight;
+import org.usfirst.frc.team4001.robot.commands.ElevatorPushBack;
+import org.usfirst.frc.team4001.robot.commands.ElevatorPushForward;
 import org.usfirst.frc.team4001.robot.commands.auto.LeftAuto;
 import org.usfirst.frc.team4001.robot.commands.auto.MiddleAuto;
 import org.usfirst.frc.team4001.robot.commands.auto.RightAuto;
+import org.usfirst.frc.team4001.robot.commands.ElevatorResetZero;
 import org.usfirst.frc.team4001.robot.subsystems.DriveTrain4Talon;
 import org.usfirst.frc.team4001.robot.subsystems.Elevator;
 //import org.usfirst.frc.team4001.robot.subsystems.Elevator;
@@ -60,6 +63,9 @@ public class Robot extends IterativeRobot {
 		chooser.addObject("Right Position", "Right");
 				
 		SmartDashboard.putData("Autonomous Position", chooser);
+		SmartDashboard.putData("Zero Elevator",new ElevatorResetZero());
+		SmartDashboard.putData("Push Forward", new ElevatorPushForward());
+		SmartDashboard.putData("Push Back", new ElevatorPushBack());
 
 		// chooser.addObject("My Auto", new MyAutoCommand());
 	}

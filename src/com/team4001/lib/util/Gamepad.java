@@ -30,8 +30,8 @@ public class Gamepad extends Joystick {
   private static final int BUTTON_Y = 4;
   private static final int BUTTON_SHOULDER_LEFT = 5;
   private static final int BUTTON_SHOULDER_RIGHT = 6;
-  private static final int BUTTON_TRIGGER_LEFT = 7;
-  private static final int BUTTON_TRIGGER_RIGHT = 8;
+  private static final int BUTTON_TRIGGER_LEFT = 2;
+  private static final int BUTTON_TRIGGER_RIGHT = 3;
   private static final int BUTTON_BACK = 9;
   private static final int BUTTON_START = 10;
   private static final int BUTTON_LEFT_STICK = 11;
@@ -188,12 +188,12 @@ public class Gamepad extends Joystick {
     return new JoystickButton(this, BUTTON_RIGHT_STICK);
   }
 
-  public JoystickButton getLeftTriggerClick() {
-    return new JoystickButton(this, BUTTON_TRIGGER_LEFT);
+  public AxisButton getLeftTriggerClick() {
+    return new AxisButton(this, BUTTON_TRIGGER_LEFT);
   }
 
-  public JoystickButton getRightTriggerClick() {
-    return new JoystickButton(this, BUTTON_TRIGGER_RIGHT);
+  public AxisButton getRightTriggerClick() {
+    return new AxisButton(this, BUTTON_TRIGGER_RIGHT);
   }
  
 }

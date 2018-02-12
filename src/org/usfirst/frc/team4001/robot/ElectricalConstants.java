@@ -72,7 +72,7 @@ public class ElectricalConstants {
 		// ************************************************************************
 		
 		public static final int ELEVATOR_MOTOR                           		= 62;	
-		public static final int PUSH_MOTOR										= -1;
+		public static final int PUSH_MOTOR										= 0;
 		public static final int EXTEND_MOTOR									= 5;
 		public static final int CUBE_LIFT_LIMIT									= 3;
 		//public static final int PUSHER_FRONT_LIMIT								= -1;
