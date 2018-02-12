@@ -20,29 +20,37 @@ public class OI {
 	 * @see Gamepad
 	 */
 	public Gamepad game_controller;
+	public Gamepad secondary_controller;
 	private JoystickButton extendUpButton;
-	private JoystickButton intakeUpButton;
+	private JoystickButton elevatorUpButton;
 	private JoystickButton extendDownButton;
-	private JoystickButton intakeDownButton;
+	private JoystickButton elevatorDownButton;
 	private JoystickButton extendHoldButton;
+
 	private JoystickButton pushForwardButton;
 	private AxisButton pushBackButton;
+
+	private JoystickButton rollInButton;
+	private JoystickButton rollOutButton;
+	private JoystickButton climbButton;
 	
 	// TODO declare primary controller buttons
-	
-		
+
+
 	/**
 	 * Instantiate controller objects and bind buttons to commands.
 	 */
 	public OI() {
 		// instantiate game controllers
 		game_controller = new Gamepad(ElectricalConstants.GAMECONTROLLER_PRIMARY_PORT);
+		secondary_controller = new Gamepad(ElectricalConstants.GAMECONTROLLER_SECONDARY_PORT);
 		
-		intakeUpButton = game_controller.getButtonY();
-		intakeUpButton.whileHeld(new ElevatorUp());
+		//Primary controller
+		elevatorUpButton = game_controller.getButtonY();
+		elevatorUpButton.whileHeld(new ElevatorUp());
 
-		intakeDownButton = game_controller.getButtonB();
-		intakeDownButton.whileHeld(new ElevatorDown());
+		elevatorDownButton = game_controller.getButtonB();
+		elevatorDownButton.whileHeld(new ElevatorDown());
 		
 		extendHoldButton = game_controller.getRightShoulder();
 		extendHoldButton.whileHeld(new ExtendHold());
@@ -58,7 +66,19 @@ public class OI {
 		
 		pushBackButton = game_controller.getLeftTriggerClick();
 		pushBackButton.whileHeld(new ElevatorPushBack());
+
+		//secondary controller
 		
+		rollInButton = secondary_controller.getButtonY();
+		rollInButton.whileHeld(new RollInArms());
+
+		
+		rollOutButton = secondary_controller.getButtonB();
+		rollOutButton.whileHeld(new RollOutArms());
+		
+		climbButton = secondary_controller.getButtonA();
+		climbButton.whileHeld(new ClimbUp());
+
 		// TODO bind game_controller buttons to commands
 	
 	}

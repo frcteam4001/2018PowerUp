@@ -22,7 +22,9 @@ public class Elevator extends Subsystem {
 
 	private WPI_TalonSRX elevatorMotor;
 	private WPI_TalonSRX extendMotor;
+
 	private Victor pushMotor;
+
 	private DigitalInput elevatorLimit;
 	//private DigitalInput pusherFrontLimit;
 	//private DigitalInput pusherBackLimit;
@@ -40,6 +42,8 @@ public class Elevator extends Subsystem {
 		
 		extendMotor = new WPI_TalonSRX(ElectricalConstants.EXTEND_MOTOR);
 		extendMotor.set(ControlMode.Position, 1);
+		//climbMotor = new WPI_TalonSRX(ElectricalConstants.CLIMB_MOTOR);
+		
 		
 		elevatorLimit = new DigitalInput(ElectricalConstants.CUBE_LIFT_LIMIT);
 		extenderLimit = new DigitalInput(ElectricalConstants.EXTEND_LIMIT);
@@ -47,6 +51,7 @@ public class Elevator extends Subsystem {
 		pusherFrontLimit = new DigitalInput(ElectricalConstants.PUSHER_FRONT_LIMIT);
 		pusherBackLimit = new DigitalInput(ElectricalConstants.PUSHER_BACK_LIMIT);
 		*/
+		
 		
 		//elevatorMotor.configPeakOutputForward(arg0, arg1) correct method but might not need
 	}
@@ -110,6 +115,11 @@ public class Elevator extends Subsystem {
 	public void setExtendSpeed(double speed){
 		extendMotor.set(speed);
 	}
+	/*
+	public void setClimbSpeed(double speed) {
+		climbMotor.set(speed);
+	}
+	*/
 	
 	public void elevatorHardStop() {
 		elevatorMotor.set(0);
@@ -122,7 +132,11 @@ public class Elevator extends Subsystem {
 	public void pusherHardStop(){
 		pushMotor.set(0);
 	}
-	
+	/*
+	public void climbHardStop() {
+		climbMotor.set(0);
+	}
+	*/
 	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

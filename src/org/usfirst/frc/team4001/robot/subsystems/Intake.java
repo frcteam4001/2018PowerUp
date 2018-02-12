@@ -1,17 +1,17 @@
 package org.usfirst.frc.team4001.robot.subsystems;
 
 import org.usfirst.frc.team4001.robot.ElectricalConstants;
+import org.usfirst.frc.team4001.robot.NumberConstants;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  *
  */
-/*
+
 public class Intake extends Subsystem {
 
     private WPI_TalonSRX leftArm;
@@ -29,25 +29,25 @@ public class Intake extends Subsystem {
   
     public void armsRollIn()
     {
-    	leftArm.set(0.5);
-    	rightArm.set(0.5);
+    	leftArm.set(NumberConstants.rollInSpeed);
+    	rightArm.set(NumberConstants.rollInSpeed);
     }
   
     public void armsRollOut() 
     {
-    	leftArm.set(-0.5);
-    	rightArm.set(-0.5);
+    	leftArm.set(NumberConstants.rollOutSpeed);
+    	rightArm.set(NumberConstants.rollOutSpeed);
     }
 
     public void leftArmRollIn()
     {
-    	leftArm.set(0.5);
+    	leftArm.set(NumberConstants.rollInSpeed);
     }
    
 
     public void rightArmRollIn()
     {
-    	rightArm.set(0.5);
+    	rightArm.set(NumberConstants.rollInSpeed);
     }
 
     
@@ -66,5 +66,5 @@ public class Intake extends Subsystem {
     }
         
 }
-*/
+
 
