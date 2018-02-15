@@ -32,6 +32,7 @@ public class ArcadeDrive extends Command {
     	Robot.drive.arcadeDrive(-1*moveForward, turn, 1);
     	//System.out.println("Boolean: " + Robot.elevator.getExtenderLimit());
     	System.out.println("Boolean: " + Robot.elevator.getElevatorLimit());
+    	System.out.println("Encoder: " + Robot.elevator.getEncPosition());
 
     }
 
