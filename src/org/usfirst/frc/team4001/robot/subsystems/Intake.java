@@ -26,6 +26,16 @@ public class Intake extends Subsystem {
     	cubeIn = new DigitalInput(ElectricalConstants.INTAKE_LIMIT);
     }
     
+    public void leftArmRollIn()
+    {
+    	leftArm.set(NumberConstants.rollInSpeed);
+    }
+   
+
+    public void rightArmRollIn()
+    {
+    	rightArm.set(NumberConstants.rollInSpeed);
+    }
   
     public void armsRollIn()
     {
@@ -38,18 +48,6 @@ public class Intake extends Subsystem {
     	leftArm.set(-NumberConstants.rollOutSpeed);
     	rightArm.set(NumberConstants.rollOutSpeed);
     }
-
-    public void leftArmRollIn()
-    {
-    	leftArm.set(NumberConstants.rollInSpeed);
-    }
-   
-
-    public void rightArmRollIn()
-    {
-    	rightArm.set(NumberConstants.rollInSpeed);
-    }
-
     
     public void hardStopRoll() {
     	leftArm.set(0);

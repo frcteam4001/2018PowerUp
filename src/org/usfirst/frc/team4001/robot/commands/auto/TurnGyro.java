@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
+
 public class TurnGyro extends Command {
 	
 	double setPoint = 0;

@@ -40,9 +40,7 @@ public class Elevator extends Subsystem {
 	
 	public Elevator() {
 		elevatorMotor = new WPI_TalonSRX(ElectricalConstants.ELEVATOR_MOTOR);
-		elevatorMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
-		//elevatorMotor.set(ControlMode.Position, 0);
-		
+		elevatorMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);		
 		
 		elevatorMotor.config_kF(0, 0, 0);
 		elevatorMotor.config_kP(0,0.1,0);
@@ -73,6 +71,19 @@ public class Elevator extends Subsystem {
 		elevatorMotor.set(power);
 	}
 	
+	public void setExtendSpeed(double speed){
+		extendMotor.set(speed);
+	}
+		
+	public void setPusherSpeed(double speed) {
+		pushMotor.set(speed);
+	}
+	
+	public void setClimbSpeed(double speed){
+		climbMotor1.set(speed);
+		climbMotor2.set(speed);
+	}
+	
 	public boolean getElevatorLimit(){
 		return elevatorLimit.get();
 	}
@@ -81,9 +92,6 @@ public class Elevator extends Subsystem {
 		return extenderLimit.get();
 	}
 	
-	public void setPusherSpeed(double speed) {
-		pushMotor.set(speed);
-	}
 	/*
 	public boolean getPusherFrontLimit(){
 		return pusherFrontLimit.get();
@@ -121,18 +129,12 @@ public class Elevator extends Subsystem {
 		elevatorMotor.setSelectedSensorPosition(0, 0, 0);
 	}
 	
-	public void setExtendSpeed(double speed){
-		extendMotor.set(speed);
-	}
-	
-	public void setClimbSpeed(double speed){
-		climbMotor1.set(speed);
-		climbMotor2.set(speed);
-	}
-	
-	
 	public int getEncPosition(){
 		return elevatorMotor.getSelectedSensorPosition(0);
+	}
+	
+	public int getExtenderPosition() {
+		return extendMotor.getSelectedSensorPosition(0);
 	}
 	
 	/**
@@ -142,14 +144,6 @@ public class Elevator extends Subsystem {
 	public void setEncPosition(int position){
 		elevatorMotor.set(ControlMode.Position, position);
 	}
-	
-	
-	
-	/*
-	public void setClimbSpeed(double speed) {
-		climbMotor.set(speed);
-	}
-	*/
 	
 	public void elevatorHardStop() {
 		elevatorMotor.set(0);

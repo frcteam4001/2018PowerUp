@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
+/*
 public class LeftAuto extends CommandGroup {
 
 	private String gameData;
@@ -74,3 +75,4 @@ public class LeftAuto extends CommandGroup {
         // arm.
     }
 }
+*/

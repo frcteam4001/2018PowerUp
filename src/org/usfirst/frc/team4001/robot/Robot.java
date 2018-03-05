@@ -11,9 +11,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team4001.robot.commands.*;
 import org.usfirst.frc.team4001.robot.commands.auto.DriveStraightGyro;
+/*
 import org.usfirst.frc.team4001.robot.commands.auto.LeftAuto;
 import org.usfirst.frc.team4001.robot.commands.auto.MiddleAuto;
 import org.usfirst.frc.team4001.robot.commands.auto.RightAuto;
+*/
 import org.usfirst.frc.team4001.robot.subsystems.DriveTrain4Talon;
 import org.usfirst.frc.team4001.robot.subsystems.Elevator;
 import org.usfirst.frc.team4001.robot.subsystems.ExampleSubsystem;
@@ -97,7 +99,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		autonomousCommand = new DriveStraightGyro(100);
+		autonomousCommand = new DriveStraightGyro(10, 0.3, 0, 15, 0.2);
 		/*if(chooser.getSelected().equals("Left")){	
 			autonomousCommand = new LeftAuto();
 		}

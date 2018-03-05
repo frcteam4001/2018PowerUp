@@ -20,25 +20,25 @@ public class OI {
 	 * The primary game controller (driver controller).  Gamepad controller mappings based on Logitech F310 controller.
 	 * @see Gamepad
 	 */
-	public Gamepad primary_controller;
+	public Gamepad game_controller;
 	public Gamepad secondary_controller;
 	
 	//primary controller buttons
-	private JoystickButton slowButton;
-	private JoystickButton raiseExtendAndIntake;
-	private JoystickButton breakButton;
-	
-	//secondary controller buttons
-	private JoystickButton goToHomeZone;
-	private JoystickButton goToZone1;
-	private JoystickButton goToZone2;
-	private JoystickButton goToZone3;
-	
-	
-	private JoystickButton pushForward;
-	private JoystickButton pushBack;
+//	private JoystickButton slowButton;
+//	private JoystickButton raiseExtendAndIntake;
+//	private JoystickButton breakButton;
+//	
+//	//secondary controller buttons
+//	private JoystickButton goToHomeZone;
+//	private JoystickButton goToZone1;
+//	private JoystickButton goToZone2;
+//	private JoystickButton goToZone3;
+//	
+//	
+//	private JoystickButton pushForward;
+//	private JoystickButton pushBack;
 	//private JoystickButton 
-	/*
+	
 	private JoystickButton extendUpButton;
 	private JoystickButton elevatorUpButton;
 	private JoystickButton extendDownButton;
@@ -58,7 +58,7 @@ public class OI {
 	private JoystickButton slowButton;
 	
 	private JoystickButton stopButton;
-	*/
+	
 	
 	// TODO declare primary controller buttons
 
@@ -68,13 +68,13 @@ public class OI {
 	 */
 	public OI() {
 		// instantiate game controllers
-		primary_controller = new Gamepad(ElectricalConstants.GAMECONTROLLER_PRIMARY_PORT);
+		game_controller = new Gamepad(ElectricalConstants.GAMECONTROLLER_PRIMARY_PORT);
 		secondary_controller = new Gamepad(ElectricalConstants.GAMECONTROLLER_SECONDARY_PORT);
 		
 		//checks to see if it is being pressed in the command rather than over here.
-		slowButton = primary_controller.getLeftShoulder();
+		//slowButton = primary_controller.getLeftShoulder();
 		
-		raiseExtendAndIntake = primary_controller.getRightShoulder();
+		//raiseExtendAndIntake = primary_controller.getRightShoulder();
 		//raiseExtendAndIntake.whenPressed(new RaiseExtendAndIntake());
 		
 		
@@ -83,7 +83,7 @@ public class OI {
 		//goToHome.whenPressed(new goToZone1());
 		
 		//Primary controller
-		/*
+		
 		elevatorUpButton = game_controller.getButtonY();
 		elevatorUpButton.whileHeld(new ElevatorUp());
 
@@ -130,7 +130,7 @@ public class OI {
 		goToZone3 = secondary_controller.getLeftShoulder();
 		goToZone3.whenPressed(new GoToZone3());
 		// TODO bind game_controller buttons to commands
-		*/
+		
 	}
 	
 }

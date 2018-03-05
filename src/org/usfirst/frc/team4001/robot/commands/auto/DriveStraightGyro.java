@@ -8,50 +8,58 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
+
 public class DriveStraightGyro extends Command {
 	
-	double setPoint;
-	double speed = 0.5;
-	double setAngle = 0;
-	double epsilon = 1;
+	private double distance;
+	private double speed;
+	private double angle;
+	private double timeOut;
+	private double epsilon;
 	
-
-    public DriveStraightGyro() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-    	
-    	requires(Robot.drive);
-    }
-    
-    public DriveStraightGyro(double setPoint){
-    	requires(Robot.drive);
-    	this.setPoint = setPoint;
-    }
+	public DriveStraightGyro(double setPoint, double speed, double angle, double timeOut, double epsilon) {
+		this.distance = setPoint;
+		this.speed = speed;
+		this.angle = angle;
+		this.timeOut = timeOut;
+		this.epsilon = epsilon;
+		requires(Robot.drive);
+	}
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	setTimeout(timeOut);
+    	Robot.drive.gyroReset();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-/*
-    	System.out.println("Set Point" + setPoint);
-    	System.out.println("Speed: " + speed);
-    	*/
-    	Robot.drive.driveStraight(setPoint, speed, setAngle, epsilon);
+		Robot.drive.driveStraight(distance, speed, angle, epsilon);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.drive.drivePID.resetPID();
+    	Robot.drive.gyroPID.resetPID();
+    	Robot.drive.reset();
+    	Robot.drive.runLeftDrive(0);
+    	Robot.drive.runRightDrive(0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	Robot.drive.drivePID.resetPID();
+    	Robot.drive.gyroPID.resetPID();
+    	Robot.drive.reset();
+    	Robot.drive.runLeftDrive(0);
+    	Robot.drive.runRightDrive(0);
     }
+    
 }
+

@@ -44,17 +44,26 @@ public class DriveTrain4Talon extends DriveTrain {
 		bottomRightMotor = new WPI_TalonSRX(ElectricalConstants.DRIVETRAIN_REAR_RIGHT);
 		
 		gyro = new ADXRS450_Gyro();
+		gyro.calibrate();
+		gyro.reset();
+		
 		
 		drivePID = new PIDController(NumberConstants.pDrive, NumberConstants.iDrive, NumberConstants.dDrive);
 		gyroPID = new PIDController(NumberConstants.pGyro, NumberConstants.iGyro, NumberConstants.dGyro);
 		
 		leftEncoder = new Encoder(ElectricalConstants.LEFT_DRIVE_ENCODER_A,ElectricalConstants.LEFT_DRIVE_ENCODER_B,ElectricalConstants.leftDriveTrainEncoderReverse, EncodingType.k4X);
+		leftEncoder.setDistancePerPulse(ElectricalConstants.driveEncoderDistPerTick);
+		
 		rightEncoder = new Encoder(ElectricalConstants.RIGHT_DRIVE_ENCODER_A,ElectricalConstants.RIGHT_DRIVE_ENCODER_B,ElectricalConstants.rightDriveTrainEncoderReverse, EncodingType.k4X);
+		rightEncoder.setDistancePerPulse(ElectricalConstants.driveEncoderDistPerTick);
 		
 		leftMotors = new SpeedControllerGroup(upperLeftMotor, bottomLeftMotor);
 		rightMotors = new SpeedControllerGroup(upperRightMotor, bottomRightMotor);
 		
 		drive = new DifferentialDrive(leftMotors, rightMotors);
+		
+		leftEncoder.reset();
+		rightEncoder.reset();
 	} 
 
     public void initDefaultCommand() {
@@ -82,6 +91,16 @@ public class DriveTrain4Talon extends DriveTrain {
 		return gyro.getAngle();
 	}
 	
+	public void gyroReset(){
+		gyro.reset();
+	}
+	
+	
+	public void reset(){
+		leftEncoder.reset();
+		rightEncoder.reset();
+	}
+	
 	public void resetPID(){
 		drivePID.resetPID();
 		gyroPID.resetPID();
@@ -91,8 +110,9 @@ public class DriveTrain4Talon extends DriveTrain {
 		double output = drivePID.calcPIDDrive(setPoint, getAverageDistance(), epsilon);
 		double angle = gyroPID.calcPID(setAngle, getYaw(), epsilon);
 		
-		runLeftDrive((output + angle) * speed);
-		runRightDrive((output + angle) * speed);
+		runLeftDrive(-(output + angle) * speed);
+		runRightDrive(-(output + angle) * speed);
 	}
+	
 }
 
