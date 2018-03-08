@@ -34,7 +34,7 @@ public class ElevatorResetZero extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	Robot.elevator.elevatorHardStop();
-    	Robot.elevator.zeroEncoderPosition();
+    	Robot.elevator.zeroElevatorPosition();
     }
 
     // Called when another command which requires one or more of the same

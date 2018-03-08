@@ -43,7 +43,7 @@ public class Elevator extends Subsystem {
 		elevatorMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);		
 		
 		elevatorMotor.config_kF(0, 0, 0);
-		elevatorMotor.config_kP(0,0.1,0);
+		elevatorMotor.config_kP(0, 0.1,0);
 		elevatorMotor.config_kI(0, 0, 0);
 		elevatorMotor.config_kD(0, 0, 0);
 		
@@ -51,6 +51,11 @@ public class Elevator extends Subsystem {
 		pushMotor = new Victor(ElectricalConstants.PUSH_MOTOR);
 		
 		extendMotor = new WPI_TalonSRX(ElectricalConstants.EXTEND_MOTOR);
+		
+		extendMotor.config_kF(0, 0, 0);
+		extendMotor.config_kP(0, 0.1, 0);
+		extendMotor.config_kI(0, 0, 0);
+		extendMotor.config_kD(0, 0, 0);
 		//extendMotor.set(ControlMode.Position, 0);
 		climbMotor1 = new WPI_TalonSRX(ElectricalConstants.CLIMB_MOTOR1);
 		climbMotor2 = new WPI_TalonSRX(ElectricalConstants.CLIMB_MOTOR2);
@@ -118,19 +123,23 @@ public class Elevator extends Subsystem {
 	}
 	*/
 	
-	public void setToHome() {
-	//	elevatorMotor.getSensorCollection().setQuadraturePosition(, );
-	}
-	
 	/**
 	 * Reset the encoder position value to zero.
 	 */
-	public void zeroEncoderPosition(){
+	
+	public void zeroExtenderPosition(){
+		extendMotor.setSelectedSensorPosition(0, 0, 0);
+	}
+	public void zeroElevatorPosition(){
 		elevatorMotor.setSelectedSensorPosition(0, 0, 0);
 	}
 	
 	public int getEncPosition(){
 		return elevatorMotor.getSelectedSensorPosition(0);
+	}
+	
+	public void setExtendPosition(int position){
+		extendMotor.set(ControlMode.Position, position);
 	}
 	
 	public int getExtenderPosition() {

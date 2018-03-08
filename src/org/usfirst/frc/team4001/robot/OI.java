@@ -20,7 +20,7 @@ public class OI {
 	 * The primary game controller (driver controller).  Gamepad controller mappings based on Logitech F310 controller.
 	 * @see Gamepad
 	 */
-	public Gamepad game_controller;
+	public Gamepad primary_controller;
 	public Gamepad secondary_controller;
 	
 	//primary controller buttons
@@ -40,13 +40,9 @@ public class OI {
 	//private JoystickButton 
 	
 	private JoystickButton extendUpButton;
-	private JoystickButton elevatorUpButton;
 	private JoystickButton extendDownButton;
-	private JoystickButton elevatorDownButton;
 	private JoystickButton extendHoldButton;
 
-	private JoystickButton pushForwardButton;
-	private AxisButton pushBackButton;
 	private JoystickButton goToHome;
 	private JoystickButton goToZone1;
 	private AxisButton goToZone2;
@@ -55,7 +51,8 @@ public class OI {
 	private JoystickButton rollInButton;
 	private JoystickButton rollOutButton;
 	private JoystickButton climbButton;
-	private JoystickButton slowButton;
+	public JoystickButton slowButton;
+	public JoystickButton manualButton;
 	
 	private JoystickButton stopButton;
 	
@@ -68,7 +65,7 @@ public class OI {
 	 */
 	public OI() {
 		// instantiate game controllers
-		game_controller = new Gamepad(ElectricalConstants.GAMECONTROLLER_PRIMARY_PORT);
+		primary_controller = new Gamepad(ElectricalConstants.GAMECONTROLLER_PRIMARY_PORT);
 		secondary_controller = new Gamepad(ElectricalConstants.GAMECONTROLLER_SECONDARY_PORT);
 		
 		//checks to see if it is being pressed in the command rather than over here.
@@ -77,37 +74,21 @@ public class OI {
 		//raiseExtendAndIntake = primary_controller.getRightShoulder();
 		//raiseExtendAndIntake.whenPressed(new RaiseExtendAndIntake());
 		
-		
-		
-		//goToHome = game_controller.getButtonA();
+		//goToHome = primary_controller.getButtonA();
 		//goToHome.whenPressed(new goToZone1());
 		
 		//Primary controller
-		
-		elevatorUpButton = game_controller.getButtonY();
-		elevatorUpButton.whileHeld(new ElevatorUp());
-
-		elevatorDownButton = game_controller.getButtonB();
-		elevatorDownButton.whileHeld(new ElevatorDown());
-		
-		extendHoldButton = game_controller.getRightShoulder();
+		extendHoldButton = primary_controller.getRightShoulder();
 		extendHoldButton.whileHeld(new ExtendHold());
 		
-		extendUpButton = game_controller.getButtonX();
+		extendUpButton = primary_controller.getButtonX();
 		extendUpButton.whileHeld(new ExtendUp());
 		
-		extendDownButton = game_controller.getButtonA();
+		extendDownButton = primary_controller.getButtonA();
 		extendDownButton.whileHeld(new ExtendDown());
-		
-		pushForwardButton = game_controller.getLeftShoulder();
-		pushForwardButton.whileHeld(new ElevatorPushForward());
-		
-		pushBackButton = game_controller.getLeftTriggerClick();
-		pushBackButton.whileHeld(new ElevatorPushBack());
-		
-		
 
-		//secondary controller
+		//Secondary controller
+		manualButton = secondary_controller.getLeftShoulder();
 		
 		rollInButton = secondary_controller.getButtonY();
 		rollInButton.whileHeld(new RollInArms());
@@ -122,14 +103,14 @@ public class OI {
 		goToHome.whenPressed(new GoToHome());
 		
 		goToZone1 = secondary_controller.getRightShoulder();
-		goToZone1.whenPressed(new goToZone1());
+		goToZone1.whenPressed(new GoToZone1());
 		
 		goToZone2 = secondary_controller.getRightTriggerClick();
 		goToZone2.whenPressed(new GoToZone2());
 		
 		goToZone3 = secondary_controller.getLeftShoulder();
 		goToZone3.whenPressed(new GoToZone3());
-		// TODO bind game_controller buttons to commands
+		// TODO bind primary_controller buttons to commands
 		
 	}
 	

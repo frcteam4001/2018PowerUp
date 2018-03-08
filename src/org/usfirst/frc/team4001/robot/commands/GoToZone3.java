@@ -26,13 +26,13 @@ public class GoToZone3 extends Command {
     		Robot.elevator.elevatorHardStop();;
     	}
     	else{
-    	Robot.elevator.setEncPosition(32091);
+    	Robot.elevator.setEncPosition(23098);
     	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;	
+        return Robot.elevator.getEncPosition() >= 22000;	
     }
 
     // Called once after isFinished returns true

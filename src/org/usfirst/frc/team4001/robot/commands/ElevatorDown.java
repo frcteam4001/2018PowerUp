@@ -1,6 +1,5 @@
 package org.usfirst.frc.team4001.robot.commands;
 
-import org.usfirst.frc.team4001.robot.NumberConstants;
 import org.usfirst.frc.team4001.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -8,8 +7,6 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-
-
 public class ElevatorDown extends Command {
 
     public ElevatorDown() {
@@ -24,14 +21,11 @@ public class ElevatorDown extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	
-    	if (Robot.elevator.getElevatorLimit()) {
-    		Robot.elevator.elevatorHardStop();
+    	if(Robot.elevator.getElevatorLimit()){
+    		end();
+    	} else {
+    		Robot.elevator.setElevatorSpeed(-0.5);
     	}
-    	else {
-    	
-    		Robot.elevator.setElevatorSpeed(-NumberConstants.elevatorSpeed);
-    	}	
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -49,6 +43,4 @@ public class ElevatorDown extends Command {
     protected void interrupted() {
     	Robot.elevator.elevatorHardStop();
     }
-    
 }
-
