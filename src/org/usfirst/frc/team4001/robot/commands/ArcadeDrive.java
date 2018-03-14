@@ -28,8 +28,12 @@ public class ArcadeDrive extends Command {
     protected void execute() {
     	moveForward = Robot.oi.primary_controller.getLeftY();
     	turn = Robot.oi.primary_controller.getRightX();
-    	
-    	Robot.drive.arcadeDrive(-1*moveForward, turn, 1);
+    	if(Robot.oi.primary_controller.getLeftShoulder().get()){
+    		Robot.drive.arcadeDrive((-1*moveForward)*0.55, turn*0.55, 1);
+    	}
+    	else{
+    		Robot.drive.arcadeDrive(-1*moveForward, turn, 1);
+    	}
     	//System.out.println("Boolean: " + Robot.elevator.getExtenderLimit());
     	//System.out.println("Boolean: " + Robot.elevator.getElevatorLimit());
     	//System.out.println("Encoder: " + Robot.elevator.getEncPosition());

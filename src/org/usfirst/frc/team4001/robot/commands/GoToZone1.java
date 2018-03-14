@@ -24,7 +24,7 @@ public class GoToZone1 extends Command {
     protected void execute() {
     	//System.out.println("GoToZone Encoder Values: " + Robot.elevator.getEncPosition());
 
-    		Robot.elevator.setEncPosition(6536);
+    	Robot.elevator.setElevatorPosition(6561);
  
     }
 

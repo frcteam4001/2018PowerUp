@@ -42,9 +42,9 @@ public class ElectricalConstants {
 		// TODO verify specifications for encoder calculations
 		public static final int driveWheelRadius		 			= 3;//wheel radius in inches
 		public static final int drivePulsePerRotation 				= 1024; //encoder pulse per rotation
-		public static final double driveGearRatio 					= 10.71/1; //ratio between wheel and encoder
+		public static final double driveGearRatio 					= 1/1; //ratio between wheel and encoder
 		public static final double driveEncoderPulsePerRot 			= drivePulsePerRotation*driveGearRatio; //pulse per rotation * gear ratio
-		public static final double driveEncoderDistPerTick 			=(Math.PI*2*driveWheelRadius)/driveEncoderPulsePerRot;
+		public static final double driveEncoderDistPerTick 			= (Math.PI*2*driveWheelRadius)/driveEncoderPulsePerRot;
 		public static final boolean leftDriveTrainEncoderReverse 	= true;
 		public static final boolean rightDriveTrainEncoderReverse 	= false;
 		
@@ -66,7 +66,7 @@ public class ElectricalConstants {
 		public static final int INTAKE_LEFT_ARM_MOTOR				= 15;   //SET
 		public static final int INTAKE_RIGHT_ARM_MOTOR				= 14;   //SET
 		
-		public static final int INTAKE_LIMIT						= 0;  	
+		public static final int INTAKE_LIMIT						= 5;  	
 		
 		// ************************************************************************
 		// **************************  ELEVATOR  **********************************
@@ -78,10 +78,10 @@ public class ElectricalConstants {
 		public static final int CLIMB_MOTOR1									= 13;
 		public static final int CLIMB_MOTOR2									= 12;
 		
-		public static final int CUBE_LIFT_LIMIT									= 3;
+		public static final int CUBE_LIFT_LIMIT									= 4;
 		//public static final int PUSHER_FRONT_LIMIT								= -1;
 		//public static final int PUSHER_BACK_LIMIT								= -1;
-		public static final int EXTEND_LIMIT									= 2;
+		public static final int EXTEND_LIMIT									= 3;
 		
 		
 }

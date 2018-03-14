@@ -12,6 +12,7 @@ public class PreferenceChanger {
 		
 		prefs = Preferences.getInstance();
 		
+		
 		NumberConstants.pDrive = prefs.getDouble("p Drive", 0.10);
 		NumberConstants.iDrive = prefs.getDouble("i Drive", 0.0);
 		NumberConstants.dDrive = prefs.getDouble("d Drive", 0.03);

@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ManualExtender extends Command {
+public class ExtendHomeZone extends Command {
 
-    public ManualExtender() {
+    public ExtendHomeZone() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.elevator);
@@ -21,10 +21,7 @@ public class ManualExtender extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double speed = Robot.oi.secondary_controller.getRightY();
-    	if(Robot.oi.manualButton.get()){
-    		Robot.elevator.setExtendSpeed(speed *0.5);
-    	}
+    	Robot.elevator.setExtendPosition(0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -34,12 +31,10 @@ public class ManualExtender extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.elevator.extendHardStop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.elevator.extendHardStop();
     }
 }

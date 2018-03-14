@@ -1,4 +1,4 @@
-package org.usfirst.frc.team4001.robot.commands;
+package org.usfirst.frc.team4001.robot.commands.auto;
 
 import org.usfirst.frc.team4001.robot.Robot;
 
@@ -7,12 +7,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ManualElevator extends Command {
+public class TalonDriveStraight extends Command {
 
-    public ManualElevator() {
+    public TalonDriveStraight() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.elevator);
+    	requires(Robot.drive);
     }
 
     // Called just before this Command runs the first time
@@ -21,11 +21,7 @@ public class ManualElevator extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double speed = Robot.oi.secondary_controller.getLeftY();
-    	double velocity = Robot.oi.secondary_controller.getRightY();
-    	Robot.elevator.setElevatorSpeed(-speed*0.5);
-    	Robot.elevator.setExtendSpeed(-velocity*0.5);
-    	
+    	Robot.drive.positionMove(20000);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -35,12 +31,12 @@ public class ManualElevator extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.elevator.elevatorHardStop();
+    	Robot.drive.hardStop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.elevator.elevatorHardStop();
+    	Robot.drive.hardStop();
     }
 }

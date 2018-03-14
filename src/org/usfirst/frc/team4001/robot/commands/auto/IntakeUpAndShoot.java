@@ -1,25 +1,17 @@
-package org.usfirst.frc.team4001.robot.commands;
+package org.usfirst.frc.team4001.robot.commands.auto;
 
-import org.usfirst.frc.team4001.robot.NumberConstants;
 import org.usfirst.frc.team4001.robot.Robot;
+import org.usfirst.frc.team4001.robot.commands.GoToZone3;
+import org.usfirst.frc.team4001.robot.commands.RollOutArms;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
  */
-public class FullExtend extends CommandGroup {
-	
+public class IntakeUpAndShoot extends CommandGroup {
 
-    public FullExtend() {
-    	
-    	if (Robot.elevator.getExtenderPosition() < NumberConstants.extenderThreshold) {
-    		addParallel(new ExtendUp());
-    	} else {
-    		Robot.elevator.extendHardStop();
-    	}
-    	addParallel(new GoToZone3());
-    	
+    public IntakeUpAndShoot() {
     	
         // Add Commands here:
         // e.g. addSequential(new Command1());
@@ -37,5 +29,7 @@ public class FullExtend extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
+    	addSequential(new GoToZone3());
+    	addSequential(new RollOutArms());
     }
 }

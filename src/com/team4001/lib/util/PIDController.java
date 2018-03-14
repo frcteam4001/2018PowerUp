@@ -2,7 +2,6 @@ package com.team4001.lib.util;
 
 import org.usfirst.frc.team4001.robot.NumberConstants;
 
-
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
@@ -175,13 +174,11 @@ public class PIDController {
 
 		// PID Output
 		output = pOut + iOut + dOut;
-		//System.out.println("PID Controller output:" + output);
 
 		// Scale output to be between 1 and -1
 		if (output != 0.0)
 			output = output / Math.abs(output) * (1.0 - Math.pow(NumberConstants.DRIVE_SCALE, (Math.abs(output))));
-
-
+		
 		return output;
 	}
 

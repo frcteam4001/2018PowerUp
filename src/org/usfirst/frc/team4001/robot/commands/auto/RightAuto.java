@@ -2,7 +2,7 @@ package org.usfirst.frc.team4001.robot.commands.auto;
 
 import org.usfirst.frc.team4001.robot.Robot;
 //import org.usfirst.frc.team4001.robot.commands.RollOutArms;
-import org.usfirst.frc.team4001.robot.commands.RollOutArms;
+//import org.usfirst.frc.team4001.robot.commands.RollOutArms;
 
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.CommandGroup;

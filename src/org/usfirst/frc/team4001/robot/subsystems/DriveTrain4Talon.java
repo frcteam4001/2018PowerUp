@@ -4,6 +4,7 @@ import org.usfirst.frc.team4001.robot.ElectricalConstants;
 import org.usfirst.frc.team4001.robot.NumberConstants;
 import org.usfirst.frc.team4001.robot.commands.ArcadeDrive;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.team4001.lib.util.PIDController;
 
@@ -39,9 +40,29 @@ public class DriveTrain4Talon extends DriveTrain {
 	
 	public DriveTrain4Talon(){
 		upperLeftMotor = new WPI_TalonSRX(ElectricalConstants.DRIVETRAIN_FRONT_LEFT);
+		
+		upperLeftMotor.config_kF(0, 0, 0);
+		upperLeftMotor.config_kP(0, 0.1, 0);
+		upperLeftMotor.config_kI(0, 0, 0);
+		upperLeftMotor.config_kD(0, 0, 0);
+		
 		upperRightMotor = new WPI_TalonSRX(ElectricalConstants.DRIVETRAIN_FRONT_RIGHT);
+		upperRightMotor.config_kF(0,0,0);
+		upperRightMotor.config_kP(0,0.1,0);
+		upperRightMotor.config_kI(0,0,0);
+		upperRightMotor.config_kD(0,0,0);
+		
 		bottomLeftMotor = new WPI_TalonSRX(ElectricalConstants.DRIVETRAIN_REAR_LEFT);
+		bottomLeftMotor.config_kF(0,0,0);
+		bottomLeftMotor.config_kP(0,0.1,0);
+		bottomLeftMotor.config_kI(0,0,0);
+		bottomLeftMotor.config_kD(0,0,0);
+		
 		bottomRightMotor = new WPI_TalonSRX(ElectricalConstants.DRIVETRAIN_REAR_RIGHT);
+		bottomRightMotor.config_kF(0, 0, 0);
+		bottomRightMotor.config_kP(0, 0.1, 0);
+		bottomRightMotor.config_kI(0, 0, 0);
+		bottomRightMotor.config_kD(0, 0, 0);
 		
 		gyro = new ADXRS450_Gyro();
 		gyro.calibrate();
@@ -95,7 +116,6 @@ public class DriveTrain4Talon extends DriveTrain {
 		gyro.reset();
 	}
 	
-	
 	public void reset(){
 		leftEncoder.reset();
 		rightEncoder.reset();
@@ -106,12 +126,26 @@ public class DriveTrain4Talon extends DriveTrain {
 		gyroPID.resetPID();
 	}
 	
+	public double talonAverageDistance(){
+		return (upperLeftMotor.getSelectedSensorPosition(0) + upperRightMotor.getSelectedSensorPosition(0) + bottomLeftMotor.getSelectedSensorPosition(0) + bottomRightMotor.getSelectedSensorPosition(0))/4;
+	}
+	
+	public void positionMove(int position){
+		upperLeftMotor.set(ControlMode.Position, position);
+		upperRightMotor.set(ControlMode.Position, position);
+		bottomLeftMotor.set(ControlMode.Position, position);
+		bottomRightMotor.set(ControlMode.Position, position);
+	}
+	
+	
 	public void driveStraight(double setPoint, double speed, double setAngle, double epsilon) {
 		double output = drivePID.calcPIDDrive(setPoint, getAverageDistance(), epsilon);
 		double angle = gyroPID.calcPID(setAngle, getYaw(), epsilon);
 		
-		runLeftDrive(-(output + angle) * speed);
+		runLeftDrive((output + angle) * speed);
 		runRightDrive(-(output + angle) * speed);
+		//runLeftDrive((output) * speed);
+		//runRightDrive(-(output) * speed);
 	}
 	
 }

@@ -1,5 +1,6 @@
 package org.usfirst.frc.team4001.robot.commands;
 
+import org.usfirst.frc.team4001.robot.NumberConstants;
 import org.usfirst.frc.team4001.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -7,9 +8,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ManualElevator extends Command {
+public class ClimbDown extends Command {
 
-    public ManualElevator() {
+    public ClimbDown() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.elevator);
@@ -21,11 +22,7 @@ public class ManualElevator extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double speed = Robot.oi.secondary_controller.getLeftY();
-    	double velocity = Robot.oi.secondary_controller.getRightY();
-    	Robot.elevator.setElevatorSpeed(-speed*0.5);
-    	Robot.elevator.setExtendSpeed(-velocity*0.5);
-    	
+    	Robot.elevator.setClimbSpeed(-NumberConstants.climbSpeed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -35,12 +32,12 @@ public class ManualElevator extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.elevator.elevatorHardStop();
+    	Robot.elevator.climbHardStop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.elevator.elevatorHardStop();
+    	Robot.elevator.climbHardStop();
     }
 }

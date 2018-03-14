@@ -22,12 +22,9 @@ public class GoToZone2 extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(Robot.elevator.getElevatorLimit()){
-    		Robot.elevator.elevatorHardStop();;
-    	}
-    	else{
-    	Robot.elevator.setEncPosition(14104);
-    	}
+
+    	Robot.elevator.setElevatorPosition(23098);
+    
     }
 
     // Make this return true when this Command no longer needs to run execute()

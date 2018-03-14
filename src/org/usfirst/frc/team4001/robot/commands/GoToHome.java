@@ -23,27 +23,39 @@ public class GoToHome extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if(Robot.elevator.getElevatorLimit()){
-    		Robot.elevator.elevatorHardStop();;
+    		Robot.elevator.setElevatorSpeed(0);
     	}
     	else{
-    		Robot.elevator.setEncPosition(0);
+    		Robot.elevator.setElevatorSpeed(-0.75);
+    	}
+    	if(Robot.elevator.getExtenderLimit()){
+    		Robot.elevator.setExtendSpeed(0);
+    	}
+    	else{
+    		Robot.elevator.setExtendSpeed(-0.75);
     	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return Robot.elevator.getElevatorLimit() && Robot.elevator.getExtenderLimit();
     }
 
     // Called once after isFinished returns true
     protected void end() {
     	Robot.elevator.elevatorHardStop();
+    	Robot.elevator.extendHardStop();
+    	Robot.elevator.zeroElevatorPosition();
+    	Robot.elevator.zeroExtenderPosition();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
     	Robot.elevator.elevatorHardStop();
+    	Robot.elevator.extendHardStop();;
+    	Robot.elevator.zeroElevatorPosition();
+    	Robot.elevator.zeroExtenderPosition();
     }
 }
 

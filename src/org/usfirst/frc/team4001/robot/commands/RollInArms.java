@@ -21,10 +21,10 @@ public class RollInArms extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (Robot.intake.getIntakeLimit()) {
+    	if(Robot.intake.getIntakeLimit()){
     		Robot.intake.hardStopRoll();
     	}
-    	else {
+    	else{
     		Robot.intake.armsRollIn();
     	}
     }

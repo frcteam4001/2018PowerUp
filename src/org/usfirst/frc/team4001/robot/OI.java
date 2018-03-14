@@ -35,22 +35,22 @@ public class OI {
 //	private JoystickButton goToZone3;
 //	
 //	
-//	private JoystickButton pushForward;
-//	private JoystickButton pushBack;
+	private AxisButton pushForward;
+	private AxisButton pushBack;
 	//private JoystickButton 
 	
 	private JoystickButton extendUpButton;
-	private JoystickButton extendDownButton;
-	private JoystickButton extendHoldButton;
+	private AxisButton extendDownButton;
+	private JoystickButton extendAllUp;
 
 	private JoystickButton goToHome;
 	private JoystickButton goToZone1;
-	private AxisButton goToZone2;
+	private JoystickButton goToZone2;
 	private JoystickButton goToZone3;
 
-	private JoystickButton rollInButton;
-	private JoystickButton rollOutButton;
-	private JoystickButton climbButton;
+	private AxisButton rollInButton;
+	private AxisButton rollOutButton;
+	private JoystickButton climbUpButton;
 	public JoystickButton slowButton;
 	public JoystickButton manualButton;
 	
@@ -78,38 +78,44 @@ public class OI {
 		//goToHome.whenPressed(new goToZone1());
 		
 		//Primary controller
-		extendHoldButton = primary_controller.getRightShoulder();
-		extendHoldButton.whileHeld(new ExtendHold());
+		slowButton = primary_controller.getLeftShoulder();
 		
-		extendUpButton = primary_controller.getButtonX();
-		extendUpButton.whileHeld(new ExtendUp());
-		
-		extendDownButton = primary_controller.getButtonA();
-		extendDownButton.whileHeld(new ExtendDown());
-
-		//Secondary controller
-		manualButton = secondary_controller.getLeftShoulder();
-		
-		rollInButton = secondary_controller.getButtonY();
+		rollInButton = primary_controller.getLeftTriggerClick();
 		rollInButton.whileHeld(new RollInArms());
 
-		rollOutButton = secondary_controller.getButtonB();
+		rollOutButton = primary_controller.getRightTriggerClick();
 		rollOutButton.whileHeld(new RollOutArms());
 		
-		climbButton = secondary_controller.getButtonA();
-		climbButton.whileHeld(new ClimbUp());
+		extendUpButton = primary_controller.getRightShoulder();
+		extendUpButton.whenPressed(new ExtendHighZone());
 		
-		goToHome = secondary_controller.getButtonX();
+		//extendDownButton = primary_controller.get
+		//extendDownButton.whenPressed(new ExtendAllDown());
+		
+		//Secondary controller
+		manualButton = secondary_controller.getLeftShoulder();
+		manualButton.whileHeld(new ManualElevator());
+		
+		climbUpButton = secondary_controller.getRightShoulder();
+		climbUpButton.whileHeld(new ClimbUp());
+		
+		goToHome = secondary_controller.getButtonA();
 		goToHome.whenPressed(new GoToHome());
 		
-		goToZone1 = secondary_controller.getRightShoulder();
+		goToZone1 = secondary_controller.getButtonB();
 		goToZone1.whenPressed(new GoToZone1());
 		
-		goToZone2 = secondary_controller.getRightTriggerClick();
+		goToZone2 = secondary_controller.getButtonX();
 		goToZone2.whenPressed(new GoToZone2());
 		
-		goToZone3 = secondary_controller.getLeftShoulder();
-		goToZone3.whenPressed(new GoToZone3());
+		goToZone3 = secondary_controller.getButtonY();
+		goToZone3.whenPressed(new ExtendAllUp());
+		
+		pushForward = secondary_controller.getRightTriggerClick();
+		pushForward.whileHeld(new ElevatorPushForward());
+		
+		pushBack = secondary_controller.getLeftTriggerClick();
+		pushBack.whileHeld(new ElevatorPushBack());
 		// TODO bind primary_controller buttons to commands
 		
 	}

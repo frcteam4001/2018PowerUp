@@ -1,6 +1,8 @@
 package org.usfirst.frc.team4001.robot;
 
 
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
@@ -11,6 +13,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team4001.robot.commands.*;
 import org.usfirst.frc.team4001.robot.commands.auto.DriveStraightGyro;
+import org.usfirst.frc.team4001.robot.commands.auto.IntakeUpAndShoot;
 /*
 import org.usfirst.frc.team4001.robot.commands.auto.LeftAuto;
 import org.usfirst.frc.team4001.robot.commands.auto.MiddleAuto;
@@ -19,8 +22,8 @@ import org.usfirst.frc.team4001.robot.commands.auto.RightAuto;
 import org.usfirst.frc.team4001.robot.subsystems.DriveTrain4Talon;
 import org.usfirst.frc.team4001.robot.subsystems.Elevator;
 import org.usfirst.frc.team4001.robot.subsystems.ExampleSubsystem;
-//import org.usfirst.frc.team4001.robot.subsystems.Intake;
 import org.usfirst.frc.team4001.robot.subsystems.Intake;
+
 
 import com.team4001.lib.util.PreferenceChanger;
 
@@ -39,6 +42,8 @@ public class Robot extends IterativeRobot {
 	public static Intake intake;
 	public static OI oi;
 	private PreferenceChanger preference;
+	private UsbCamera camera;
+	private CameraServer server;
 
 
 	Command autonomousCommand;
@@ -56,7 +61,7 @@ public class Robot extends IterativeRobot {
 		elevator = new Elevator();
 		intake = new Intake();
 		oi = new OI();
-		preference = new PreferenceChanger();
+		//preference = new PreferenceChanger();
 		chooser = new SendableChooser<String>();
 		chooser.addDefault("Left Position", "Left");
 		chooser.addObject("Middle Position", "Middle");
@@ -64,8 +69,10 @@ public class Robot extends IterativeRobot {
 				
 		SmartDashboard.putData("Autonomous Position", chooser);
 		SmartDashboard.putData("Zero Elevator",new ElevatorResetZero());
-		SmartDashboard.putData("Push Forward", new ElevatorPushForward());
-		SmartDashboard.putData("Push Back", new ElevatorPushBack());
+		SmartDashboard.putData("Extend Reset", new ExtenderResetZero());
+		SmartDashboard.putData("Climb Down", new ClimbDown());
+		SmartDashboard.putData("Intake Up and Shoot Test", new IntakeUpAndShoot());
+		
 
 
 		// chooser.addObject("My Auto", new MyAutoCommand());
@@ -99,7 +106,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		autonomousCommand = new DriveStraightGyro(10, 0.3, 0, 15, 0.2);
+		autonomousCommand = new DriveStraightGyro(15, 0.5, 0, 15, 0.2);
 		/*if(chooser.getSelected().equals("Left")){	
 			autonomousCommand = new LeftAuto();
 		}
@@ -132,6 +139,7 @@ public class Robot extends IterativeRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
+		
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
 	}
@@ -141,7 +149,9 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
-		SmartDashboard.putNumber("Encoder Value", Robot.elevator.getEncPosition());
+		SmartDashboard.putNumber("Extend Encoder", Robot.elevator.getExtenderPosition());
+		SmartDashboard.putNumber("Elevator Encoder" , Robot.elevator.getEncPosition());
+		//SmartDashboard.putNumber("Encoder Value", Robot.elevator.getEncPosition());
 		Scheduler.getInstance().run();
 	}
 

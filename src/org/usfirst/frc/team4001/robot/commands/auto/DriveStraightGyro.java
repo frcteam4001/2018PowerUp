@@ -28,8 +28,9 @@ public class DriveStraightGyro extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	setTimeout(timeOut);
+    	Robot.drive.reset();
     	Robot.drive.gyroReset();
+    	setTimeout(timeOut);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -44,21 +45,20 @@ public class DriveStraightGyro extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.drive.drivePID.resetPID();
-    	Robot.drive.gyroPID.resetPID();
-    	Robot.drive.reset();
     	Robot.drive.runLeftDrive(0);
     	Robot.drive.runRightDrive(0);
+    	Robot.drive.drivePID.resetPID();
+    	Robot.drive.gyroPID.resetPID();
+    	
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.drive.drivePID.resetPID();
-    	Robot.drive.gyroPID.resetPID();
-    	Robot.drive.reset();
     	Robot.drive.runLeftDrive(0);
     	Robot.drive.runRightDrive(0);
+    	Robot.drive.drivePID.resetPID();
+    	Robot.drive.gyroPID.resetPID();
     }
     
 }

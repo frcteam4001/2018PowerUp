@@ -1,5 +1,7 @@
+//
+//
 package org.usfirst.frc.team4001.robot.subsystems;
-
+//
 import org.usfirst.frc.team4001.robot.ElectricalConstants;
 import org.usfirst.frc.team4001.robot.NumberConstants;
 
@@ -15,6 +17,7 @@ import edu.wpi.first.wpilibj.Sendable;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
+
 
 /**
  *
@@ -150,7 +153,7 @@ public class Elevator extends Subsystem {
 	 * Move the motor to a specified position.
 	 * @param position The position to move to
 	 */
-	public void setEncPosition(int position){
+	public void setElevatorPosition(int position){
 		elevatorMotor.set(ControlMode.Position, position);
 	}
 	
