@@ -3,6 +3,7 @@ package org.usfirst.frc.team4001.robot.commands.auto;
 import org.usfirst.frc.team4001.robot.Robot;
 //import org.usfirst.frc.team4001.robot.commands.RollOutArms;
 //import org.usfirst.frc.team4001.robot.commands.RollOutArms;
+import org.usfirst.frc.team4001.robot.commands.RollOutArms;
 
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.CommandGroup;
@@ -10,7 +11,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-/*
+
 public class RightAuto extends CommandGroup {
 
 	private String gameData;
@@ -20,37 +21,49 @@ public class RightAuto extends CommandGroup {
     	
     	if(gameData.charAt(0) == 'R'){
     		System.out.println("Auto running for right side switch");
-    		addSequential(new DriveStraightGyro(165.354));
-    		addSequential(new TurnGyro(-90));
-    		addSequential(new DriveStraightGyro(19.2913));
+    		addParallel(new DriveStraightGyro(130, 0.5, 0, 3, 1));
+    		addParallel(new PushForwardAndIntakeUp());
+    		addSequential(new TurnGyro(-90, 0.5, 1));
+    		addSequential(new DriveStraightGyro(2, 0.5, 0, 0.5, 1));
     		addSequential(new RollOutArms());
     	}
     	else if(gameData.charAt(1) == 'R'){
     		System.out.println("Auto running for right side scale");
-    		addSequential(new DriveStraightGyro(325.1968));
-    		addSequential(new TurnGyro(-90));
-    		addSequential(new DriveStraightGyro(8.2677));    	
-    	}
-    	else if(gameData.charAt(0) == 'L'){
-    		System.out.println("Auto running for left side switch");
-    		addSequential(new DriveStraightGyro(225.70866));
-    		addSequential(new TurnGyro(-90));
-    		addSequential(new DriveStraightGyro(181.8901)); 
-    		addSequential(new TurnGyro(-90));
-    		addSequential(new DriveStraightGyro(60.62994)); 
-    		addSequential(new TurnGyro(-90));
-    		addSequential(new DriveStraightGyro(11.0236));
+    		addParallel(new DriveStraightGyro(286, 0.5, 0, 7, 1));
+    		addParallel(new PushForwardAndIntakeUp());
+    		addSequential(new TurnGyro(-90, 0.5, 1));
+    		addSequential(new DriveStraightGyro(2, 0.5, 0, 0.5, 1));
     		addSequential(new RollOutArms());
     	}
+//    	else if(gameData.charAt(0) == 'L'){
+//    		System.out.println("Auto running for left side switch");
+//    		addSequential(new DriveStraightGyro(225.70866, 0.5, 0, 3, 1));
+//    		addSequential(new TurnGyro(-90));
+//    		addSequential(new DriveStraightGyro(181.8901, 0.5, 0, 3, 1)); 
+//    		addSequential(new TurnGyro(-90));
+//    		addSequential(new DriveStraightGyro(60.62994, 0.5, 0, 3, 1)); 
+//    		addSequential(new TurnGyro(-90));
+//    		addSequential(new DriveStraightGyro(11.0236, 0.5, 0, 3, 1));
+//    		addSequential(new RollOutArms());
+//    		
+//    		
+//    		
+//    		
+//    	}
     	else if(gameData.charAt(1) == 'L'){
-    		System.out.println("Auto running for left side scale");
-    		addSequential(new DriveStraightGyro(225.9845));
-    		addSequential(new TurnGyro(-90));
-    		addSequential(new DriveStraightGyro(195.6696));
-    		addSequential(new TurnGyro(90));
-    		addSequential(new DriveStraightGyro(121.8683));
-    		addSequential(new TurnGyro(90));
-    		addSequential(new DriveStraightGyro(8.2677));
+//    		System.out.println("Auto running for left side scale");
+//    		addSequential(new DriveStraightGyro(225.9845, 0.5, 0, 3, 1));
+//    		addSequential(new TurnGyro(-90));
+//    		addSequential(new DriveStraightGyro(195.6696, 0.5, 0, 3, 1));
+//    		addSequential(new TurnGyro(90));
+//    		addSequential(new DriveStraightGyro(121.8683, 0.5, 0, 3, 1));
+//    		addSequential(new TurnGyro(90));
+//    		addSequential(new DriveStraightGyro(8.2677, 0.5, 0, 3, 1));
+    		
+    		System.out.println("Driving straight");
+    		addSequential(new DriveStraightGyro(200, 0.5, 0, 5, 1));
+//    		addParallel(new PushForwardAndIntakeUp());
+//    		addSequential(new RollOutArms());
     		
     		
     		//Not sure what this is
@@ -64,6 +77,9 @@ public class RightAuto extends CommandGroup {
     	}
     	else{
     		System.out.println("Auto running to move forward");
+    		addSequential(new DriveStraightGyro(200, 0.5, 0, 5, 1));
+//    		addParallel(new PushForwardAndIntakeUp());
+//    		addSequential(new RollOutArms());
     	}
     	
         // Add Commands here:
@@ -84,4 +100,4 @@ public class RightAuto extends CommandGroup {
         // arm.
     }
 }
-*/
+

@@ -50,10 +50,10 @@ public class Elevator extends Subsystem {
 		elevatorMotor.config_kI(0, 0, 0);
 		elevatorMotor.config_kD(0, 0, 0);
 		
-		
 		pushMotor = new Victor(ElectricalConstants.PUSH_MOTOR);
 		
 		extendMotor = new WPI_TalonSRX(ElectricalConstants.EXTEND_MOTOR);
+		extendMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
 		
 		extendMotor.config_kF(0, 0, 0);
 		extendMotor.config_kP(0, 0.1, 0);
@@ -66,11 +66,11 @@ public class Elevator extends Subsystem {
 		
 		elevatorLimit = new DigitalInput(ElectricalConstants.CUBE_LIFT_LIMIT);
 		extenderLimit = new DigitalInput(ElectricalConstants.EXTEND_LIMIT);
+		
 		/*
 		pusherFrontLimit = new DigitalInput(ElectricalConstants.PUSHER_FRONT_LIMIT);
 		pusherBackLimit = new DigitalInput(ElectricalConstants.PUSHER_BACK_LIMIT);
 		*/
-		
 		
 		//elevatorMotor.configPeakOutputForward(arg0, arg1) correct method but might not need
 	}

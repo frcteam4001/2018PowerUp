@@ -10,10 +10,9 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class TurnGyro extends Command {
 	
-	double setPoint = 0;
-	double speed = 0.5;
-	double setAngle = 0;
-	double epsilon = 1;
+	double speed;
+	double setAngle;
+	double timeOut;
 
     public TurnGyro() {
         // Use requires() here to declare subsystem dependencies
@@ -21,29 +20,35 @@ public class TurnGyro extends Command {
     	requires(Robot.drive);
     }
     
-    public TurnGyro(double angle) {
+    public TurnGyro(double angle, double speed, double timeOut) {
     	requires(Robot.drive);
     	this.setAngle = angle;
+    	this.speed = speed;
+    	this.timeOut = timeOut;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.drive.reset();
+    	setTimeout(timeOut);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	
-    	Robot.drive.driveStraight(setPoint, speed, setAngle, epsilon);
+    	Robot.drive.turnDrive(setAngle, speed, 1);
     	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.drive.runLeftDrive(0);
+    	Robot.drive.runRightDrive(0);
     }
 
     // Called when another command which requires one or more of the same

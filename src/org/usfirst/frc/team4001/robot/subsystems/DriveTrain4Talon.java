@@ -148,5 +148,12 @@ public class DriveTrain4Talon extends DriveTrain {
 		//runRightDrive(-(output) * speed);
 	}
 	
+	public void turnDrive(double setAngle, double speed, double epsilon) {
+		double angle = gyroPID.calcPID(setAngle, getYaw(), epsilon);
+		
+		runLeftDrive(angle * speed);
+		runRightDrive(angle * speed);
+	}
+	
 }
 

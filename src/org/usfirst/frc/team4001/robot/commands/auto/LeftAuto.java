@@ -1,5 +1,7 @@
 package org.usfirst.frc.team4001.robot.commands.auto;
 
+import org.usfirst.frc.team4001.robot.commands.RollOutArms;
+
 //import org.usfirst.frc.team4001.robot.commands.RollOutArms;
 
 import edu.wpi.first.wpilibj.DriverStation;
@@ -8,7 +10,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-/*
+
 public class LeftAuto extends CommandGroup {
 
 	private String gameData;
@@ -19,41 +21,53 @@ public class LeftAuto extends CommandGroup {
     	System.out.println(gameData);
     	
     	if(gameData.charAt(0) == 'L'){
-    		System.out.println("Auto running for right side switch");
-    		addSequential(new DriveStraightGyro(165.354));
-    		addSequential(new TurnGyro(90));
-    		addSequential(new DriveStraightGyro(19.2913));
+    		System.out.println("Auto running for left side switch");
+    		addParallel(new DriveStraightGyro(130, 0.5, 0, 3, 1));
+    		addParallel(new PushForwardAndIntakeUp());
+    		addSequential(new TurnGyro(90, 0.5, 1));
+    		addSequential(new DriveStraightGyro(2, 0.5, 0, 0.5, 1));
     		addSequential(new RollOutArms());
     	}
     	else if(gameData.charAt(1) == 'L'){
-    		System.out.println("Auto running for left side scale");
-    		addSequential(new DriveStraightGyro(325.1968));
-    		addSequential(new TurnGyro(90));
-    		addSequential(new DriveStraightGyro(8.2677));
-    	}
-    	else if(gameData.charAt(0) == 'R'){
-       		System.out.println("Auto running for right side switch");
-    		addSequential(new DriveStraightGyro(225.70866));
-    		addSequential(new TurnGyro(90));
-    		addSequential(new DriveStraightGyro(181.8901)); 
-    		addSequential(new TurnGyro(90));
-    		addSequential(new DriveStraightGyro(60.62994)); 
-    		addSequential(new TurnGyro(90));
-    		addSequential(new DriveStraightGyro(11.0236));
+    		System.out.println("Auto running to move forward");
+    		addParallel(new DriveStraightGyro(200, 0.5, 0, 5, 1));
+    		addParallel(new PushForwardAndIntakeUp());
     		addSequential(new RollOutArms());
+//    		System.out.println("Auto running for left side scale");
+//    		addSequential(new DriveStraightGyro(325.1968, 0.5, 0, 3, 1));
+//    		addSequential(new TurnGyro(90));
+//    		addSequential(new DriveStraightGyro(8.2677, 0.5, 0, 3, 1));
     	}
-    	else if(gameData.charAt(1) == 'R'){
-    		System.out.println("Auto running for right side scale");
-    		addSequential(new DriveStraightGyro(225.9845));
-    		addSequential(new TurnGyro(90));
-    		addSequential(new DriveStraightGyro(195.6696));
-    		addSequential(new TurnGyro(-90));
-    		addSequential(new DriveStraightGyro(121.8683));
-    		addSequential(new TurnGyro(-90));
-    		addSequential(new DriveStraightGyro(8.2677));	
-    	}
+//    	else if(gameData.charAt(0) == 'R'){
+//    		System.out.println("Auto running to move forward");
+//    		addSequential(new DriveStraightGyro(200, 0.5, 0, 5, 1));
+//    		addParallel(new PushForwardAndIntakeUp());
+//    		addSequential(new RollOutArms());
+//       		System.out.println("Auto running for right side switch");
+//    		addSequential(new DriveStraightGyro(225.70866, 0.5, 0, 3, 1));
+//    		addSequential(new TurnGyro(90));
+//    		addSequential(new DriveStraightGyro(181.8901, 0.5, 0, 3, 1)); 
+//    		addSequential(new TurnGyro(90));
+//    		addSequential(new DriveStraightGyro(60.62994, 0.5, 0, 3, 1)); 
+//    		addSequential(new TurnGyro(90));
+//    		addSequential(new DriveStraightGyro(11.0236, 0.5, 0, 3, 1));
+//    		addSequential(new RollOutArms());
+//    	}
+//    	else if(gameData.charAt(1) == 'R'){
+//    		System.out.println("Auto running for right side scale");
+//    		addSequential(new DriveStraightGyro(225.9845, 0.5, 0, 3, 1));
+//    		addSequential(new TurnGyro(90));
+//    		addSequential(new DriveStraightGyro(195.6696, 0.5, 0, 3, 1));
+//    		addSequential(new TurnGyro(-90));
+//    		addSequential(new DriveStraightGyro(121.8683, 0.5, 0, 3, 1));
+//    		addSequential(new TurnGyro(-90));
+//    		addSequential(new DriveStraightGyro(8.2677, 0.5, 0, 3, 1));	
+//    	}
     	else{
     		System.out.println("Auto running to move forward");
+    		addSequential(new DriveStraightGyro(200, 0.5, 0, 5, 1));
+//    		addParallel(new PushForwardAndIntakeUp());
+//    		addSequential(new RollOutArms());
     	}
     	
     	
@@ -75,4 +89,4 @@ public class LeftAuto extends CommandGroup {
         // arm.
     }
 }
-*/
+

@@ -1,6 +1,5 @@
 package org.usfirst.frc.team4001.robot.commands;
 
-import org.usfirst.frc.team4001.robot.AutoSelector;
 import org.usfirst.frc.team4001.robot.NumberConstants;
 import org.usfirst.frc.team4001.robot.Robot;
 
@@ -29,10 +28,10 @@ public class ArcadeDrive extends Command {
     	moveForward = Robot.oi.primary_controller.getLeftY();
     	turn = Robot.oi.primary_controller.getRightX();
     	if(Robot.oi.primary_controller.getLeftShoulder().get()){
-    		Robot.drive.arcadeDrive((-1*moveForward)*0.55, turn*0.55, 1);
+    		Robot.drive.arcadeDrive((-1*moveForward)*0.65, turn*0.65, 1);
     	}
     	else{
-    		Robot.drive.arcadeDrive(-1*moveForward, turn, 1);
+    		Robot.drive.arcadeDrive((-1*moveForward)*.89, turn, 1);
     	}
     	//System.out.println("Boolean: " + Robot.elevator.getExtenderLimit());
     	//System.out.println("Boolean: " + Robot.elevator.getElevatorLimit());

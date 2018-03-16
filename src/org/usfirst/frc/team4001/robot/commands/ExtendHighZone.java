@@ -21,13 +21,13 @@ public class ExtendHighZone extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.elevator.setExtendPosition(36000);
+    	Robot.elevator.setExtendPosition(34000);
     	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.elevator.getExtenderPosition() >= 36000 ;
+        return Robot.elevator.getExtenderPosition() >= 34000 ;
     }
 
     // Called once after isFinished returns true

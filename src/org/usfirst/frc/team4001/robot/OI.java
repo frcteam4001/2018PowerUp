@@ -103,10 +103,10 @@ public class OI {
 		goToHome.whenPressed(new GoToHome());
 		
 		goToZone1 = secondary_controller.getButtonB();
-		goToZone1.whenPressed(new GoToZone1());
+		goToZone1.whenPressed(new GoToSwitch());
 		
 		goToZone2 = secondary_controller.getButtonX();
-		goToZone2.whenPressed(new GoToZone2());
+		goToZone2.whenPressed(new GoToLowHeight());
 		
 		goToZone3 = secondary_controller.getButtonY();
 		goToZone3.whenPressed(new ExtendAllUp());

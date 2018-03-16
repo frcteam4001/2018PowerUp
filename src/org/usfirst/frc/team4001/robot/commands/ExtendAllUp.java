@@ -21,23 +21,25 @@ public class ExtendAllUp extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.elevator.setExtendPosition(36000);
+    	Robot.elevator.setExtendPosition(34000);
     	Robot.elevator.setElevatorPosition(36500);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.elevator.getExtenderPosition() >= 36000 && Robot.elevator.getEncPosition() >= 36500;
+        return Robot.elevator.getExtenderPosition() >= 34000 && Robot.elevator.getEncPosition() >= 36500;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.elevator.elevatorHardStop();
     	Robot.elevator.setExtendSpeed(0.05);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	Robot.elevator.elevatorHardStop();
     	Robot.elevator.setExtendSpeed(0.05);
     }
 }
