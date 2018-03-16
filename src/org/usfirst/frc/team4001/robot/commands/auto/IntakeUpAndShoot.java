@@ -1,7 +1,7 @@
 package org.usfirst.frc.team4001.robot.commands.auto;
 
 import org.usfirst.frc.team4001.robot.Robot;
-import org.usfirst.frc.team4001.robot.commands.GoToZone3;
+import org.usfirst.frc.team4001.robot.commands.GoToSwitch;
 import org.usfirst.frc.team4001.robot.commands.RollOutArms;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
@@ -29,7 +29,7 @@ public class IntakeUpAndShoot extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	addSequential(new GoToZone3());
+    	addSequential(new GoToSwitch());
     	addSequential(new RollOutArms());
     }
 }

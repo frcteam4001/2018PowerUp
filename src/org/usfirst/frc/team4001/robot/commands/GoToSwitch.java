@@ -1,5 +1,6 @@
 package org.usfirst.frc.team4001.robot.commands;
 
+import org.usfirst.frc.team4001.robot.NumberConstants;
 import org.usfirst.frc.team4001.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -23,7 +24,7 @@ public class GoToSwitch extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
 
-    	Robot.elevator.setElevatorPosition(23098);
+    	Robot.elevator.setElevatorPosition(NumberConstants.elevatorSwitchZone);
     
     }
 

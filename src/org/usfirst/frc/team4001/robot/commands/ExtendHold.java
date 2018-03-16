@@ -1,5 +1,6 @@
 package org.usfirst.frc.team4001.robot.commands;
 
+import org.usfirst.frc.team4001.robot.NumberConstants;
 import org.usfirst.frc.team4001.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -21,7 +22,7 @@ public class ExtendHold extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.elevator.setExtendSpeed(0.05);
+    	Robot.elevator.setExtendSpeed(NumberConstants.extendHoldSpeed);
     }
 
     // Make this return true when this Command no longer needs to run execute()

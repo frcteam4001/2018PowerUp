@@ -1,5 +1,6 @@
 package org.usfirst.frc.team4001.robot.commands;
 
+import org.usfirst.frc.team4001.robot.NumberConstants;
 import org.usfirst.frc.team4001.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -24,7 +25,7 @@ public class GoToLowHeight extends Command {
     protected void execute() {
     	//System.out.println("GoToZone Encoder Values: " + Robot.elevator.getEncPosition());
 
-    	Robot.elevator.setElevatorPosition(10320);
+    	Robot.elevator.setElevatorPosition(NumberConstants.elevatorLowHeight);
  
     }
 

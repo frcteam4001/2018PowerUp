@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
+/*
 public class ExtendDown extends Command {
 
     public ExtendDown() {
@@ -41,3 +42,4 @@ public class ExtendDown extends Command {
     	Robot.elevator.extendHardStop();
     }
 }
+*/

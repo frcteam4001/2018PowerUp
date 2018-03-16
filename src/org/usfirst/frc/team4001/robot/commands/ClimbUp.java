@@ -28,7 +28,7 @@ public class ClimbUp extends Command {
     		Robot.elevator.extendHardStop();
     	}
     	else{
-    		Robot.elevator.setExtendSpeed(-0.7);
+    		Robot.elevator.setExtendSpeed(-NumberConstants.extendClimbSpeed);
     	}
     }
 

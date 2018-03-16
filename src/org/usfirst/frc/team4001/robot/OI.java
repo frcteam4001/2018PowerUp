@@ -44,9 +44,8 @@ public class OI {
 	private JoystickButton extendAllUp;
 
 	private JoystickButton goToHome;
-	private JoystickButton goToZone1;
-	private JoystickButton goToZone2;
-	private JoystickButton goToZone3;
+	private JoystickButton goToSwitch;
+	private JoystickButton goToMinHeight;
 
 	private AxisButton rollInButton;
 	private AxisButton rollOutButton;
@@ -102,14 +101,14 @@ public class OI {
 		goToHome = secondary_controller.getButtonA();
 		goToHome.whenPressed(new GoToHome());
 		
-		goToZone1 = secondary_controller.getButtonB();
-		goToZone1.whenPressed(new GoToSwitch());
+		goToSwitch = secondary_controller.getButtonB();
+		goToSwitch.whenPressed(new GoToSwitch());
 		
-		goToZone2 = secondary_controller.getButtonX();
-		goToZone2.whenPressed(new GoToLowHeight());
+		goToMinHeight = secondary_controller.getButtonX();
+		goToMinHeight.whenPressed(new GoToLowHeight());
 		
-		goToZone3 = secondary_controller.getButtonY();
-		goToZone3.whenPressed(new ExtendAllUp());
+		extendAllUp = secondary_controller.getButtonY();
+		extendAllUp.whenPressed(new ExtendAllUp());
 		
 		pushForward = secondary_controller.getRightTriggerClick();
 		pushForward.whileHeld(new ElevatorPushForward());

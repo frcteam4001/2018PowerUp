@@ -22,7 +22,7 @@ public class RightAuto extends CommandGroup {
     	if(gameData.charAt(0) == 'R'){
     		System.out.println("Auto running for right side switch");
     		addParallel(new DriveStraightGyro(130, 0.5, 0, 3, 1));
-    		addParallel(new PushForwardAndIntakeUp());
+    		addParallel(new PushForward());
     		addSequential(new TurnGyro(-90, 0.5, 1));
     		addSequential(new DriveStraightGyro(2, 0.5, 0, 0.5, 1));
     		addSequential(new RollOutArms());
@@ -30,7 +30,7 @@ public class RightAuto extends CommandGroup {
     	else if(gameData.charAt(1) == 'R'){
     		System.out.println("Auto running for right side scale");
     		addParallel(new DriveStraightGyro(286, 0.5, 0, 7, 1));
-    		addParallel(new PushForwardAndIntakeUp());
+    		addParallel(new PushForward());
     		addSequential(new TurnGyro(-90, 0.5, 1));
     		addSequential(new DriveStraightGyro(2, 0.5, 0, 0.5, 1));
     		addSequential(new RollOutArms());

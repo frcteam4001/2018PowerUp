@@ -1,5 +1,6 @@
 package org.usfirst.frc.team4001.robot.commands;
 
+import org.usfirst.frc.team4001.robot.NumberConstants;
 import org.usfirst.frc.team4001.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -21,25 +22,25 @@ public class ExtendAllUp extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.elevator.setExtendPosition(34000);
-    	Robot.elevator.setElevatorPosition(36500);
+    	Robot.elevator.setExtendPosition(NumberConstants.extendScaleZone);
+    	Robot.elevator.setElevatorPosition(NumberConstants.elevatorMaxZone);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.elevator.getExtenderPosition() >= 34000 && Robot.elevator.getEncPosition() >= 36500;
+        return Robot.elevator.getExtenderPosition() >= NumberConstants.extendScaleZone && Robot.elevator.getEncPosition() >= NumberConstants.extendScaleZone;
     }
 
     // Called once after isFinished returns true
     protected void end() {
     	Robot.elevator.elevatorHardStop();
-    	Robot.elevator.setExtendSpeed(0.05);
+    	Robot.elevator.setExtendSpeed(NumberConstants.extendHoldSpeed);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
     	Robot.elevator.elevatorHardStop();
-    	Robot.elevator.setExtendSpeed(0.05);
+    	Robot.elevator.setExtendSpeed(NumberConstants.extendHoldSpeed);
     }
 }

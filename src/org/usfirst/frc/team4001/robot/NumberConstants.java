@@ -36,10 +36,20 @@ public class NumberConstants {
 	// ************************************************************************
 	
 	//public static final double elevatorMaxVoltage  						 = 0.5;
-	public static final double elevatorSpeed							 = 0.4;	
+	public static final double elevatorResetSpeed						 = 0.75;	
 	public static final double extendSpeed								 = 0.5;
+	public static final double extendClimbSpeed							 = 0.7;
+	public static final double extendShuffleSpeed						 = 0.3;
+	public static final double extendHoldSpeed							 = 0.05;
+	public static final double extendResetSpeed							 = 0.75;
+	public static final int	extendScaleZone								 = 34000;
+	public static final int elevatorLowHeight							 = 10320;
+	public static final int elevatorSwitchZone							 = 23098;
+	public static final int elevatorMaxZone							 	 = 36500;
 	public static final double climbSpeed 								 = 1;
-	public static final double extenderThreshold						 = 10000; //check
+	public static final double climbResetSpeed							 = 0.5; //climb shuffleboard speed slower due to it being a button 
+	public static final double extenderThreshold						 = 10000;
+	public static final double pusherSpeed							 = 0.75;
 	
 	// ************************************************************************
 	// **************************  INTAKE  ************************************

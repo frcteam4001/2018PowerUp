@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
+/*
 public class ElevatorUp extends Command {
 
     public ElevatorUp() {
@@ -40,3 +41,4 @@ public class ElevatorUp extends Command {
     	Robot.elevator.elevatorHardStop();
     }
 }
+*/

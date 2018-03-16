@@ -27,7 +27,7 @@ public class MiddleAuto extends CommandGroup {
     		System.out.println("The auto running is for the left side switch");
 
     		addParallel(new DriveStraightGyro(29, 0.5, 0, 1, 1));
-    		addParallel(new PushForwardAndIntakeUp());
+    		addParallel(new PushForward());
     		addSequential(new TurnGyro(-90, 0.5, 1));
     		addSequential(new DriveStraightGyro(93, 0.5, 0, 2.5, 1));
     		addSequential(new TurnGyro(90, 0.5, 1));
@@ -36,7 +36,7 @@ public class MiddleAuto extends CommandGroup {
     	} else {
     		System.out.println("The auto running is for the right side switch");
     		addParallel(new DriveStraightGyro(100, 0.5, 0, 2.5, 1));
-    		addParallel(new PushForwardAndIntakeUp());
+    		addParallel(new PushForward());
 //    		addSequential(new TurnGyro(90));
 //    		addSequential(new DriveStraightGyro(32.2, 0.5, 0, 3, 1));
 //    		addSequential(new TurnGyro(-90));

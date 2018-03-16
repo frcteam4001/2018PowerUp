@@ -1,5 +1,6 @@
 package org.usfirst.frc.team4001.robot.commands;
 
+import org.usfirst.frc.team4001.robot.NumberConstants;
 import org.usfirst.frc.team4001.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -26,13 +27,13 @@ public class GoToHome extends Command {
     		Robot.elevator.setElevatorSpeed(0);
     	}
     	else{
-    		Robot.elevator.setElevatorSpeed(-0.75);
+    		Robot.elevator.setElevatorSpeed(-NumberConstants.elevatorResetSpeed);
     	}
     	if(Robot.elevator.getExtenderLimit()){
     		Robot.elevator.setExtendSpeed(0);
     	}
     	else{
-    		Robot.elevator.setExtendSpeed(-0.75);
+    		Robot.elevator.setExtendSpeed(-NumberConstants.extendResetSpeed);
     	}
     }
 
