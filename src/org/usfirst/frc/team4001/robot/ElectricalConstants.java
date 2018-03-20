@@ -81,7 +81,8 @@ public class ElectricalConstants {
 		public static final int CUBE_LIFT_LIMIT									= 4;
 		//public static final int PUSHER_FRONT_LIMIT								= -1;
 		//public static final int PUSHER_BACK_LIMIT								= -1;
-		public static final int EXTEND_LIMIT									= 3;
+		public static final int EXTEND_TOP_LIMIT								= -1;
+		public static final int EXTEND_BOT_LIMIT								= 3;
 		
 		
 }

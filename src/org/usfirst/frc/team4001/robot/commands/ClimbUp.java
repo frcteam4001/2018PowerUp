@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-
+/*
 public class ClimbUp extends Command {
 
     public ClimbUp() {
@@ -50,3 +50,4 @@ public class ClimbUp extends Command {
     }
 }
 
+*/

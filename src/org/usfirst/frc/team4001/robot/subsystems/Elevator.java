@@ -4,6 +4,7 @@ package org.usfirst.frc.team4001.robot.subsystems;
 //
 import org.usfirst.frc.team4001.robot.ElectricalConstants;
 import org.usfirst.frc.team4001.robot.NumberConstants;
+import org.usfirst.frc.team4001.robot.Robot;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
@@ -35,7 +36,8 @@ public class Elevator extends Subsystem {
 	private DigitalInput elevatorLimit;
 	//private DigitalInput pusherFrontLimit;
 	//private DigitalInput pusherBackLimit;
-	private DigitalInput extenderLimit;
+	private DigitalInput extenderBotLimit;
+	private DigitalInput extenderTopLimit;
 	
 	
     // Put methods for controlling this subsystem
@@ -46,7 +48,7 @@ public class Elevator extends Subsystem {
 		elevatorMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);		
 		
 		elevatorMotor.config_kF(0, 0, 0);
-		elevatorMotor.config_kP(0, 0.1,0);
+		elevatorMotor.config_kP(0, 0.5, 0);
 		elevatorMotor.config_kI(0, 0, 0);
 		elevatorMotor.config_kD(0, 0, 0);
 		
@@ -56,17 +58,17 @@ public class Elevator extends Subsystem {
 		extendMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
 		
 		extendMotor.config_kF(0, 0, 0);
-		extendMotor.config_kP(0, 0.1, 0);
+		extendMotor.config_kP(0, 0.2, 0);
 		extendMotor.config_kI(0, 0, 0);
 		extendMotor.config_kD(0, 0, 0);
 		//extendMotor.set(ControlMode.Position, 0);
+		
 		climbMotor1 = new WPI_TalonSRX(ElectricalConstants.CLIMB_MOTOR1);
 		climbMotor2 = new WPI_TalonSRX(ElectricalConstants.CLIMB_MOTOR2);
 		
-		
 		elevatorLimit = new DigitalInput(ElectricalConstants.CUBE_LIFT_LIMIT);
-		extenderLimit = new DigitalInput(ElectricalConstants.EXTEND_LIMIT);
-		
+		extenderBotLimit = new DigitalInput(ElectricalConstants.EXTEND_BOT_LIMIT);
+		//extenderTopLimit = new DigitalInput(ElectricalConstants.EXTEND_TOP_LIMIT);
 		/*
 		pusherFrontLimit = new DigitalInput(ElectricalConstants.PUSHER_FRONT_LIMIT);
 		pusherBackLimit = new DigitalInput(ElectricalConstants.PUSHER_BACK_LIMIT);
@@ -76,28 +78,38 @@ public class Elevator extends Subsystem {
 	}
 	
 	public void setElevatorSpeed(double power) {
-		elevatorMotor.set(power);
+		if(elevatorLimit.get()&& power < 0){
+			elevatorMotor.set(0);;
+		} else {
+			elevatorMotor.set(power);
+		}
+		
 	}
 	
 	public void setExtendSpeed(double speed){
-		extendMotor.set(speed);
+		/*
+		if(extenderBotLimit.get() && speed < 0){
+			extendMotor.set(0);
+		}
+		else if(extenderTopLimit.get() && speed > 0){
+			extendMotor.set(0);
+		}
+		*/
+		//else{
+			extendMotor.set(speed);
+		//}
 	}
 		
 	public void setPusherSpeed(double speed) {
-		pushMotor.set(speed);
-	}
-	
-	public void setClimbSpeed(double speed){
-		climbMotor1.set(speed);
-		climbMotor2.set(speed);
+		pushMotor.set(-speed);
 	}
 	
 	public boolean getElevatorLimit(){
 		return elevatorLimit.get();
 	}
 	
-	public boolean getExtenderLimit(){
-		return extenderLimit.get();
+	public boolean getExtenderBotLimit(){
+		return extenderBotLimit.get();
 	}
 	
 	/*

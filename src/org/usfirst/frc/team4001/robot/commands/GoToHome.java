@@ -29,7 +29,7 @@ public class GoToHome extends Command {
     	else{
     		Robot.elevator.setElevatorSpeed(-NumberConstants.elevatorResetSpeed);
     	}
-    	if(Robot.elevator.getExtenderLimit()){
+    	if(Robot.elevator.getExtenderBotLimit()){
     		Robot.elevator.setExtendSpeed(0);
     	}
     	else{
@@ -39,7 +39,7 @@ public class GoToHome extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.elevator.getElevatorLimit() && Robot.elevator.getExtenderLimit();
+        return Robot.elevator.getElevatorLimit() && Robot.elevator.getExtenderBotLimit();
     }
 
     // Called once after isFinished returns true

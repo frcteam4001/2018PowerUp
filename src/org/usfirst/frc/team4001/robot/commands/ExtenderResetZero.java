@@ -27,7 +27,7 @@ public class ExtenderResetZero extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.elevator.getExtenderLimit();
+        return Robot.elevator.getExtenderBotLimit();
     }
 
     // Called once after isFinished returns true

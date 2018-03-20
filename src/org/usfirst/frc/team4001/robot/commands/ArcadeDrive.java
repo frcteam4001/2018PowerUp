@@ -31,7 +31,7 @@ public class ArcadeDrive extends Command {
     		Robot.drive.arcadeDrive((-1*moveForward)*0.65, turn*0.65, 1);
     	}
     	else{
-    		Robot.drive.arcadeDrive((-1*moveForward)*.89, turn, 1);
+    		Robot.drive.arcadeDrive((-1*moveForward)*.85, turn*0.85, 1);
     	}
     	//System.out.println("Boolean: " + Robot.elevator.getExtenderLimit());
     	//System.out.println("Boolean: " + Robot.elevator.getElevatorLimit());

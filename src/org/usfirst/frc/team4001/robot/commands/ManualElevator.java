@@ -22,17 +22,25 @@ public class ManualElevator extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	System.out.println("Manual Elevator");
     	double speed = Robot.oi.secondary_controller.getLeftY();
     	double velocity = Robot.oi.secondary_controller.getRightY();
-    	if(Robot.elevator.getElevatorLimit() && speed > 0){
+    	/*                                         
+    	if(Robot.elevator.getElevatorLimit() && speed < 0){
+    		System.out.println("Manual Elevator: limit true" + speed);
     		Robot.elevator.elevatorHardStop();
     	}
     	else{
-    		Robot.elevator.setElevatorSpeed(-speed*0.5);
-    	}
-    	if(Robot.elevator.getExtenderLimit() && velocity > 0){
-    		Robot.elevator.setExtendSpeed(-velocity*0.5);
-    	}
+    	*/
+    		Robot.elevator.setElevatorSpeed(-speed*1);
+    		//System.out.println("Manual Elevator: limit false" + speed);
+    	//}
+    		/*
+    	if(Robot.elevator.getExtenderLimit() && velocity < 0){
+    		System.out.println("Manual Elevator: extender" + velocity);
+        	*/
+    		Robot.elevator.setExtendSpeed(-velocity*0.85);
+    	//}
     	
     }
 
@@ -43,6 +51,7 @@ public class ManualElevator extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	
     	Robot.elevator.elevatorHardStop();
     	Robot.elevator.setExtendSpeed(NumberConstants.extendHoldSpeed);
     }

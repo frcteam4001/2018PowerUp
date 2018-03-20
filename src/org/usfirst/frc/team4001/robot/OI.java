@@ -94,10 +94,10 @@ public class OI {
 		//Secondary controller
 		manualButton = secondary_controller.getLeftShoulder();
 		manualButton.whileHeld(new ManualElevator());
-		
+		/*
 		climbUpButton = secondary_controller.getRightShoulder();
 		climbUpButton.whileHeld(new ClimbUp());
-		
+		*/
 		goToHome = secondary_controller.getButtonA();
 		goToHome.whenPressed(new GoToHome());
 		

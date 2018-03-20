@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-
+/*
 public class DriveStraightGyro extends Command {
 	
 	private double distance;
@@ -29,7 +29,7 @@ public class DriveStraightGyro extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.drive.reset();
-    	Robot.drive.gyroReset();
+    	//Robot.drive.gyroReset();
     	setTimeout(timeOut);
     }
 
@@ -62,4 +62,4 @@ public class DriveStraightGyro extends Command {
     }
     
 }
-
+*/

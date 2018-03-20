@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
+/*
 public class ClimbOnlyUp extends Command {
 
     public ClimbOnlyUp() {
@@ -41,3 +42,4 @@ public class ClimbOnlyUp extends Command {
     	Robot.elevator.setClimbSpeed(0);
     }
 }
+*/

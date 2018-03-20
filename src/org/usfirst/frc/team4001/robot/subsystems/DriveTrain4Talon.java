@@ -63,10 +63,12 @@ public class DriveTrain4Talon extends DriveTrain {
 		bottomRightMotor.config_kP(0, 0.1, 0);
 		bottomRightMotor.config_kI(0, 0, 0);
 		bottomRightMotor.config_kD(0, 0, 0);
-		
+		/*
 		gyro = new ADXRS450_Gyro();
 		gyro.calibrate();
 		gyro.reset();
+		*/
+		
 		
 		
 		drivePID = new PIDController(NumberConstants.pDrive, NumberConstants.iDrive, NumberConstants.dDrive);
@@ -112,10 +114,11 @@ public class DriveTrain4Talon extends DriveTrain {
 		return gyro.getAngle();
 	}
 	
+	
 	public void gyroReset(){
 		gyro.reset();
 	}
-	
+
 	public void reset(){
 		leftEncoder.reset();
 		rightEncoder.reset();
@@ -137,7 +140,7 @@ public class DriveTrain4Talon extends DriveTrain {
 		bottomRightMotor.set(ControlMode.Position, position);
 	}
 	
-	
+	/*
 	public void driveStraight(double setPoint, double speed, double setAngle, double epsilon) {
 		double output = drivePID.calcPIDDrive(setPoint, getAverageDistance(), epsilon);
 		double angle = gyroPID.calcPID(setAngle, getYaw(), epsilon);
@@ -154,6 +157,8 @@ public class DriveTrain4Talon extends DriveTrain {
 		runLeftDrive(angle * speed);
 		runRightDrive(angle * speed);
 	}
+	*/
+	
 	
 }
 

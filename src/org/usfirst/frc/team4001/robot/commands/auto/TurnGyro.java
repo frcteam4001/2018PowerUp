@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-
+/*
 public class TurnGyro extends Command {
 	
 	double speed;
@@ -56,3 +56,5 @@ public class TurnGyro extends Command {
     protected void interrupted() {
     }
 }
+*/
+

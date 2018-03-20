@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team4001.robot.commands.*;
-import org.usfirst.frc.team4001.robot.commands.auto.DriveStraightGyro;
+//import org.usfirst.frc.team4001.robot.commands.auto.DriveStraightGyro;
 import org.usfirst.frc.team4001.robot.commands.auto.IntakeUpAndShoot;
 import org.usfirst.frc.team4001.robot.commands.auto.LeftAuto;
 import org.usfirst.frc.team4001.robot.commands.auto.MiddleAuto;
@@ -69,8 +69,10 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData("Autonomous Position", chooser);
 		SmartDashboard.putData("Zero Elevator",new ElevatorResetZero());
 		SmartDashboard.putData("Extend Reset", new ExtenderResetZero());
+		/*
 		SmartDashboard.putData("Climb Up", new ClimbOnlyUp());
 		SmartDashboard.putData("Climb Down", new ClimbDown());
+		*/
 		SmartDashboard.putData("Intake Up and Shoot Test", new IntakeUpAndShoot());
 		
 
