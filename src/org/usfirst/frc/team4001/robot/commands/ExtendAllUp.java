@@ -28,7 +28,7 @@ public class ExtendAllUp extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.elevator.getExtenderPosition() >= NumberConstants.extendScaleZone && Robot.elevator.getEncPosition() >= NumberConstants.extendScaleZone;
+        return Robot.elevator.getExtenderTopLimit() && Robot.elevator.getEncPosition() >= NumberConstants.elevatorMaxZone;
     }
 
     // Called once after isFinished returns true

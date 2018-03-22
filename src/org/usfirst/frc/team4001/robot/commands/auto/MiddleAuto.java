@@ -39,16 +39,16 @@ public class MiddleAuto extends CommandGroup {
     		
     		*/
     		
-//    		addSequential(new ArcadeStraight(0.65, 1));
-//    		addSequential(new Turn(-0.6, 1));
-//    		addSequential(new ArcadeStraight(0.65, 2));
-//    		addSequential(new Turn(0.6, 1));
-//    		addParallel(new PushForward());
-//    		addSequential(new ArcadeStraight(0.65, 1));
-//    		addSequential(new RollOutArms());
+    		addSequential(new ArcadeStraight(0.65, 1));
+    		addSequential(new Turn(-0.6, 1));
+    		addSequential(new ArcadeStraight(0.65, 2));
+    		addSequential(new Turn(0.6, 1));
+    		addParallel(new PushForward());
+    		addSequential(new ArcadeStraight(0.65, 1));
+    		addSequential(new RollOutArms());
     		
     		System.out.println("Auto running straight");
-    		addSequential(new ArcadeStraight(0.65, 3));
+    		//addSequential(new ArcadeStraight(0.65, 3));
     		
     		} else {
     		

@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-/*
+
 public class ClimbUp extends Command {
 
     public ClimbUp() {
@@ -24,12 +24,7 @@ public class ClimbUp extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.elevator.setClimbSpeed(NumberConstants.climbSpeed);
-    	if(Robot.elevator.getExtenderLimit()){
-    		Robot.elevator.extendHardStop();
-    	}
-    	else{
-    		Robot.elevator.setExtendSpeed(-NumberConstants.extendClimbSpeed);
-    	}
+    	Robot.elevator.setExtendSpeed(-NumberConstants.extendClimbSpeed);	
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -49,5 +44,3 @@ public class ClimbUp extends Command {
     	Robot.elevator.climbHardStop();
     }
 }
-
-*/

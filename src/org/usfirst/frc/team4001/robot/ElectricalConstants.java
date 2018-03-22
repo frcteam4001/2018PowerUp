@@ -63,10 +63,10 @@ public class ElectricalConstants {
 		//****************************** INTAKE *************************************
 		//***************************************************************************
 		
-		public static final int INTAKE_LEFT_ARM_MOTOR				= 15;   //SET
-		public static final int INTAKE_RIGHT_ARM_MOTOR				= 14;   //SET
+		public static final int INTAKE_LEFT_ARM_MOTOR							= 15;   //SET
+		public static final int INTAKE_RIGHT_ARM_MOTOR							= 14;   //SET
 		
-		public static final int INTAKE_LIMIT						= 5;  	
+		public static final int INTAKE_LIMIT									= 5;  	
 		
 		// ************************************************************************
 		// **************************  ELEVATOR  **********************************
@@ -75,8 +75,8 @@ public class ElectricalConstants {
 		public static final int ELEVATOR_MOTOR                           		= 62;	
 		public static final int PUSH_MOTOR										= 0;
 		public static final int EXTEND_MOTOR									= 5;
-		public static final int CLIMB_MOTOR1									= 13;
-		public static final int CLIMB_MOTOR2									= 12;
+		public static final int CLIMB_MOTOR										= 13;
+//		public static final int CLIMB_MOTOR2									= 12;
 		
 		public static final int CUBE_LIFT_LIMIT									= 4;
 		//public static final int PUSHER_FRONT_LIMIT								= -1;

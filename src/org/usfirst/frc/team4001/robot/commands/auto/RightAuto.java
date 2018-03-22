@@ -36,21 +36,21 @@ public class RightAuto extends CommandGroup {
     		System.out.println("Auto running right switch");
     		addParallel(new PushForward());
     		addSequential(new ArcadeStraight(0.65, 3));
-    		addSequential(new Turn(-0.5, 2));
+    		addSequential(new Turn(-0.5, 1));
     		addSequential(new RollOutArms());
     		
     		
     	}
-    	/*
+    	
     	else if(gameData.charAt(1) == 'R'){
     		System.out.println("Auto running for right side scale");
+    		addSequential(new ArcadeStraight(1, 2.5));
+    		addSequential(new Turn(-0.5, 1));
     		addParallel(new PushForward());
-    		addSequential(new DriveStraightGyro(286, 1, 0, 7, 1));
-    		addSequential(new TurnGyro(-90, 0.5, 1));
-    		addSequential(new DriveStraightGyro(2, 1, 0, 0.5, 1));
+    		addSequential(new ArcadeStraight(0.5, 0.5));
     		addSequential(new RollOutArms());
     	}
-    	*/
+    
 //    	else if(gameData.charAt(0) == 'L'){
 //    		System.out.println("Auto running for left side switch");
 //    		addSequential(new DriveStraightGyro(225.70866, 0.5, 0, 3, 1));

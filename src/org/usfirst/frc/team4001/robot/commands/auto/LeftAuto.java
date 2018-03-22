@@ -40,19 +40,20 @@ public class LeftAuto extends CommandGroup {
     		addSequential(new Turn(0.5, 1));
     		addSequential(new RollOutArms());
     	}
-    	/*
+    	
     	else if(gameData.charAt(1) == 'L'){
     		System.out.println("Auto running to move forward");
+    		addSequential(new ArcadeStraight(1, 2.5));
+    		addSequential(new Turn(0.5, 1));
     		addParallel(new PushForward());
-    		addSequential(new DriveStraightGyro(200, 1, 0, 5, 1));
-    		addSequential(new TurnGyro(100, 0.5, 1 ));
+    		addSequential(new ArcadeStraight(0.5, 0.5));
     		addSequential(new RollOutArms());
 //    		System.out.println("Auto running for left side scale");
 //    		addSequential(new DriveStraightGyro(325.1968, 0.5, 0, 3, 1));
 //    		addSequential(new TurnGyro(90));
 //    		addSequential(new DriveStraightGyro(8.2677, 0.5, 0, 3, 1));
     	}
-    	*/
+    	
 //    	else if(gameData.charAt(0) == 'R'){
 //    		System.out.println("Auto running to move forward");
 //    		addSequential(new DriveStraightGyro(200, 0.5, 0, 5, 1));

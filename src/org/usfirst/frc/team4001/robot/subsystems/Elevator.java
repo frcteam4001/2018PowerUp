@@ -28,8 +28,8 @@ public class Elevator extends Subsystem {
 
 	private WPI_TalonSRX elevatorMotor;
 	private WPI_TalonSRX extendMotor;
-	private WPI_TalonSRX climbMotor1;
-	private WPI_TalonSRX climbMotor2;
+	private WPI_TalonSRX climbMotor;
+	//private WPI_TalonSRX climbMotor2;
 
 	private Victor pushMotor;
 
@@ -63,12 +63,12 @@ public class Elevator extends Subsystem {
 		extendMotor.config_kD(0, 0, 0);
 		//extendMotor.set(ControlMode.Position, 0);
 		
-		climbMotor1 = new WPI_TalonSRX(ElectricalConstants.CLIMB_MOTOR1);
-		climbMotor2 = new WPI_TalonSRX(ElectricalConstants.CLIMB_MOTOR2);
+		climbMotor = new WPI_TalonSRX(ElectricalConstants.CLIMB_MOTOR);
+		//climbMotor2 = new WPI_TalonSRX(ElectricalConstants.CLIMB_MOTOR2);
 		
 		elevatorLimit = new DigitalInput(ElectricalConstants.CUBE_LIFT_LIMIT);
 		extenderBotLimit = new DigitalInput(ElectricalConstants.EXTEND_BOT_LIMIT);
-		//extenderTopLimit = new DigitalInput(ElectricalConstants.EXTEND_TOP_LIMIT);
+		extenderTopLimit = new DigitalInput(ElectricalConstants.EXTEND_TOP_LIMIT);
 		/*
 		pusherFrontLimit = new DigitalInput(ElectricalConstants.PUSHER_FRONT_LIMIT);
 		pusherBackLimit = new DigitalInput(ElectricalConstants.PUSHER_BACK_LIMIT);
@@ -78,8 +78,8 @@ public class Elevator extends Subsystem {
 	}
 	
 	public void setElevatorSpeed(double power) {
-		if(elevatorLimit.get()&& power < 0){
-			elevatorMotor.set(0);;
+		if(elevatorLimit.get() && power < 0){
+			elevatorMotor.set(0);
 		} else {
 			elevatorMotor.set(power);
 		}
@@ -87,17 +87,17 @@ public class Elevator extends Subsystem {
 	}
 	
 	public void setExtendSpeed(double speed){
-		/*
+		
 		if(extenderBotLimit.get() && speed < 0){
 			extendMotor.set(0);
 		}
 		else if(extenderTopLimit.get() && speed > 0){
 			extendMotor.set(0);
 		}
-		*/
-		//else{
+		
+		else{
 			extendMotor.set(speed);
-		//}
+		}
 	}
 		
 	public void setPusherSpeed(double speed) {
@@ -110,6 +110,10 @@ public class Elevator extends Subsystem {
 	
 	public boolean getExtenderBotLimit(){
 		return extenderBotLimit.get();
+	}
+	
+	public boolean getExtenderTopLimit(){
+		return extenderTopLimit.get();
 	}
 	
 	/*
@@ -142,6 +146,10 @@ public class Elevator extends Subsystem {
 	 * Reset the encoder position value to zero.
 	 */
 	
+	public void setClimbSpeed(double speed){
+		climbMotor.set(speed);
+	}
+	
 	public void zeroExtenderPosition(){
 		extendMotor.setSelectedSensorPosition(0, 0, 0);
 	}
@@ -153,9 +161,11 @@ public class Elevator extends Subsystem {
 		return elevatorMotor.getSelectedSensorPosition(0);
 	}
 	
+	/*
 	public void setExtendPosition(int position){
 		extendMotor.set(ControlMode.Position, position);
 	}
+	*/
 	
 	public int getExtenderPosition() {
 		return extendMotor.getSelectedSensorPosition(0);
@@ -182,8 +192,8 @@ public class Elevator extends Subsystem {
 	}
 	
 	public void climbHardStop() {
-		climbMotor1.set(0);
-		climbMotor2.set(0);
+		climbMotor.set(0);
+		//climbMotor2.set(0);
 	}
 	
 	

@@ -69,13 +69,13 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData("Autonomous Position", chooser);
 		SmartDashboard.putData("Zero Elevator",new ElevatorResetZero());
 		SmartDashboard.putData("Extend Reset", new ExtenderResetZero());
+		SmartDashboard.putData("Climb Up Only", new ClimbOnlyUp());
+		SmartDashboard.putData("Climb Down", new ClimbDown());
 		/*
 		SmartDashboard.putData("Climb Up", new ClimbOnlyUp());
 		SmartDashboard.putData("Climb Down", new ClimbDown());
-		*/
 		SmartDashboard.putData("Intake Up and Shoot Test", new IntakeUpAndShoot());
-		
-
+		*/
 
 		// chooser.addObject("My Auto", new MyAutoCommand());
 	}
@@ -150,7 +150,7 @@ public class Robot extends IterativeRobot {
 	public void teleopPeriodic() {
 		SmartDashboard.putNumber("Extend Encoder", Robot.elevator.getExtenderPosition());
 		SmartDashboard.putNumber("Elevator Encoder" , Robot.elevator.getEncPosition());
-		SmartDashboard.putNumber("Encoder Distance", Robot.drive.getAverageDistance());
+		//SmartDashboard.putNumber("Encoder Distance", Robot.drive.getAverageDistance());
 		//SmartDashboard.putNumber("Encoder Value", Robot.elevator.getEncPosition());
 		Scheduler.getInstance().run();
 	}
